@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Portal | ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #a31e25;
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .system-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 40ßpx;
+      height: 40px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .title-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .profile-pic {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 8px;
+      border: 2px solid #fff;
+    }
+
+    .username {
+      white-space: nowrap;
+    }
+
+    .icon-caret {
+      width: 12px;
+      height: 12px;
+      margin-left: 6px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100%+4px);
+      right: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      min-width: 160px;
+      z-index: 100;
+      padding: 4px 0;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      transition: background 0.2s;
+    }
+
+    .dropdown-menu li:hover {
+      background: #f0f0f0;
+    }
+
+    .menu-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+      margin-right: 8px;
+    }
+
+    /* Main grid */
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 20px;
+    }
+
+    .module-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 6px;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+
+    .module-item:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .module-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-bottom: 8px;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+
+    /* Module header */
+    .module-header {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .module-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 12px;
+    }
+
+    .module-header h2 {
+      font-size: 1.5rem;
+      color: #a31e25;
+      margin: 0 20px 0 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #007bff;
+    }
+
+    /* Content box */
+    .content-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 24px;
+    }
+
+    .content-box h3 {
+      font-size: 1.2rem;
+      color: #a31e25;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #a31e25;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    /* Counters for nested lists */
+    .top-list {
+      counter-reset: section;
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .top-list>li {
+      counter-increment: section;
+      display: block;
+      padding: 8px 0;
+      margin-bottom: 16px;
+    }
+
+    .top-list>li::before {
+      content: counter(section) ". ";
+      font-weight: bold;
+      color: #a31e25;
+      margin-right: 8px;
+    }
+
+    .top-list>li .item-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #a31e25;
+      display: inline;
+    }
+
+    .top-list>li>ol {
+      counter-reset: subsection;
+      margin: 8px 0 0 24px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .top-list>li>ol>li {
+      counter-increment: subsection;
+      display: block;
+      margin: 4px 0;
+    }
+
+    .top-list>li>ol>li::before {
+      content: counter(section) "." counter(subsection) " ";
+      font-weight: bold;
+      color: #a31e25;
+      margin-right: 6px;
+    }
+
+    .top-list>li>ol>li>a {
+      font-size: 0.95rem;
+    }
+
+    .top-list>li>ol>li>ol {
+      counter-reset: subsubsection;
+      margin: 4px 0 0 24px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .top-list>li>ol>li>ol>li {
+      counter-increment: subsubsection;
+      display: block;
+      margin: 2px 0;
+    }
+
+    .top-list>li>ol>li>ol>li::before {
+      content: counter(section) "." counter(subsection) "." counter(subsubsection) " ";
+      font-weight: bold;
+      color: #a31e25;
+      margin-right: 4px;
+    }
+
+    .top-list>li>ol>li>ol>li>a {
+      font-size: 0.9rem;
+    }
+
+    .top-list a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .top-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      margin: 40px 0 20px;
+    }
+
+    /* Responsive */
+    @media (max-width:600px) {
+
+      .title-text,
+      .username {
+        display: none;
+      }
+
+      .logo {
+        width: 32px;
+        height: 32px;
+        margin-right: 6px;
+      }
+
+      .profile-pic {
+        width: 28px;
+        height: 28px;
+      }
+
+      .dropdown-menu {
+        min-width: 140px;
+      }
+
+      .dropdown-toggle {
+        font-size: 0.85rem;
+      }
+
+      .module-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .module-header img,
+      .module-header h2,
+      .subtitle {
+        margin: 0 auto;
+      }
+
+      .module-icon {
+        margin-bottom: 12px;
+      }
+
+      .content-box {
+        padding: 16px;
+      }
+
+      .top-list>li {
+        padding: 6px 0;
+      }
+
+      .top-list>li>ol {
+        margin: 6px 0 0 20px;
+      }
+
+      .top-list>li>ol>li {
+        margin: 4px 0;
+      }
+
+      .top-list>li>ol>li>ol {
+        margin: 4px 0 0 20px;
+      }
+
+      .top-list>li>ol>li>ol>li {
+        margin: 2px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="system-title">
+      <img alt="Logo" class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" />
+      <span class="title-text">ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</span>
+    </div>
+    <div class="user-menu">
+      <div class="dropdown-toggle">
+        <img alt="Profile" class="profile-pic" src="http://localhost:8888/nn/images/modules/800_clock2.png" />
+        <span class="username">นายสุรสิทธิ์ ท้าวกอก</span>
+        <img alt="▼" class="icon-caret" src="https://via.placeholder.com/12" />
+      </div>
+      <ul class="dropdown-menu">
+        <li>
+          <img alt="หน้าแรก" class="menu-icon" src="https://via.placeholder.com/16" />
+          <a href="#">หน้าแรก</a>
+        </li>
+        <li>
+          <img alt="เปลี่ยนรหัสผ่าน" class="menu-icon" src="https://via.placeholder.com/16" />
+          <a href="#">เปลี่ยนรหัสผ่าน</a>
+        </li>
+        <li>
+          <img alt="ออกจากระบบ" class="menu-icon" src="https://via.placeholder.com/16" />
+          <a href="#">ออกจากระบบ</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <div class="module-grid">
+      <!-- Row 1 -->
+      <div class="module-item">
+        <a href="module-student-800.html">
+          <img alt="กิจกรรมหน้าเสาธง" src="http://localhost:8888/nn/images/modules/800_clock2.png" />
+          <div class="label">กิจกรรมหน้าเสาธง</div>
+        </a>
+      </div>
+      <div class="module-item">
+        <img alt="บันทึกการเข้าเรียน" src="https://via.placeholder.com/60" />
+        <div class="label">บันทึกการเข้าเรียน</div>
+      </div>
+      <div class="module-item">
+        <img alt="สืบค้นประวัติ" src="https://via.placeholder.com/60" />
+        <div class="label">สืบค้นประวัติ</div>
+      </div>
+      <div class="module-item">
+        <img alt="ผลการเรียน" src="https://via.placeholder.com/60" />
+        <div class="label">ผลการเรียน</div>
+      </div>
+      <div class="module-item">
+        <img alt="งานวินัยนักเรียน" src="https://via.placeholder.com/60" />
+        <div class="label">งานวินัยนักเรียน</div>
+      </div>
+      <div class="module-item">
+        <img alt="ภูมิสารสนเทศ" src="https://via.placeholder.com/60" />
+        <div class="label">ภูมิสารสนเทศ</div>
+      </div>
+      <div class="module-item">
+        <img alt="QA &amp; SAR" src="https://via.placeholder.com/60" />
+        <div class="label">QA &amp; SAR</div>
+      </div>
+      <div class="module-item">
+        <img alt="สถิติ/รายการ" src="https://via.placeholder.com/60" />
+        <div class="label">สถิติ/รายการ</div>
+      </div>
+      <div class="module-item">
+        <img alt="แผน/งบประมาณ" src="https://via.placeholder.com/60" />
+        <div class="label">แผน/งบประมาณ</div>
+      </div>
+      <!-- Row 2 -->
+      <div class="module-item">
+        <img alt="ครุภัณฑ์" src="https://via.placeholder.com/60" />
+        <div class="label">ครุภัณฑ์</div>
+      </div>
+      <div class="module-item">
+        <img alt="TCSS" src="https://via.placeholder.com/60" />
+        <div class="label">TCSS</div>
+      </div>
+      <div class="module-item">
+        <img alt="ธนาคารความดี" src="https://via.placeholder.com/60" />
+        <div class="label">ธนาคารความดี</div>
+      </div>
+      <div class="module-item">
+        <img alt="บริหารหลักสูตร" src="https://via.placeholder.com/60" />
+        <div class="label">บริหารหลักสูตร</div>
+      </div>
+      <div class="module-item">
+        <img alt="HRM" src="https://via.placeholder.com/60" />
+        <div class="label">HRM</div>
+      </div>
+      <div class="module-item">
+        <img alt="EIS" src="https://via.placeholder.com/60" />
+        <div class="label">EIS</div>
+      </div>
+      <div class="module-item">
+        <img alt="งานทะเบียนนักเรียน" src="https://via.placeholder.com/60" />
+        <div class="label">งานทะเบียนนักเรียน</div>
+      </div>
+      <div class="module-item">
+        <img alt="ข้อมูลส่วนตัว" src="https://via.placeholder.com/60" />
+        <div class="label">ข้อมูลส่วนตัว</div>
+      </div>
+      <div class="module-item">
+        <img alt="ตั้งค่าระบบ" src="https://via.placeholder.com/60" />
+        <div class="label">ตั้งค่าระบบ</div>
+      </div>
+    </div>
+    <hr />
+    <main>
+      <div class="module-header">
+        <img alt="กิจกรรมหน้าเสาธง" class="module-icon" src="https://via.placeholder.com/60" />
+        <div>
+          <h2>กิจกรรมหน้าเสาธง</h2>
+          <div class="subtitle">ระบบบันทึกการเข้าร่วมกิจกรรมหน้าเสาธง</div>
+        </div>
+      </div>
+      <section class="content-box">
+        <h3>ฟังก์ชันหลัก</h3>
+        <ol class="top-list">
+          <li>
+            <div class="item-title">สร้างงานบันทึกข้อมูล</div>
+            <ol>
+              <li><a href="#">1.1 สร้างฟอร์มบันทึกข้อมูล</a></li>
+              <li><a href="#">1.2 ตรวจสอบฟอร์มที่สร้างงานบันทึกข้อมูลแล้ว</a></li>
+            </ol>
+          </li>
+          <li>
+            <div class="item-title">บันทึกการเข้าร่วมกิจกรรม</div>
+            <ol>
+              <li>
+                <span class="item-title">ระดับชั้น</span>
+                <ol>
+                  <li><a href="#">2.1.1 ม.ต้น</a></li>
+                  <li><a href="#">2.1.2 ม.ปลาย</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      © ระบบจัดการสารสนเทศ<br />
+      System developed by: Mr. Surasith Taokok, email: taokok@gmail.com, Tel: 087 370 8079
+    </footer>
+  </main>
+  <footer>
+    © ระบบจัดการสารสนเทศ<br />
+    System developed by: Mr. Surasith Taokok, email: taokok@gmail.com, Tel: 087 370 8079
+  </footer>
+  <script>// จัดการ dropdown menu
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggles = document.querySelectorAll('.dropdown-toggle');
+      toggles.forEach(toggle => {
+        const menu = toggle.nextElementSibling;
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          document.querySelectorAll('.dropdown-menu.show')
+            .forEach(m => m.classList.remove('show'));
+          menu.classList.toggle('show');
+        });
+      });
+      document.addEventListener('click', function () {
+        document.querySelectorAll('.dropdown-menu.show')
+          .forEach(m => m.classList.remove('show'));
+      });
+    });
+    ß</script>
+</body>
+
+</html>
