@@ -466,6 +466,51 @@
         <div class="subtitle">ระบบบันทึกการเข้าร่วมกิจกรรมหน้าเสาธง</div>
       </div>
     </div>
+
+    <div class="module-header">
+      <!-- ซ้าย: ไอคอน + หัวข้อ + subtitle -->
+      <div style="display: flex; align-items: center;">
+        <img alt="กิจกรรมหน้าเสาธง" class="module-icon" src="https://cdn-icons-png.flaticon.com/512/3159/3159310.png" />
+        <div style="margin-left: 12px;">
+          <h2 style="margin: 0;">8.00 O' Clock</h2>
+          <div class="subtitle" style="font-size: 1.1rem; color: #007bff; font-weight: bold;">3.3 แบบรายงานประจำวัน
+          </div>
+        </div>
+      </div>
+      <!-- ขวา: ฟอร์ม -->
+      <form class="module-header-form">
+        <label class="school-year">ปีการศึกษา</label>
+        <span class="year-num">2568</span>
+        <label class="semester">ภาคเรียนที่</label>
+        <span class="semester-num">1</span>
+
+        <label for="level">ระดับชั้น</label>
+        <select id="level" name="level">
+          <option value="">เลือก</option>
+          <option value="ม.1">ม.1</option>
+          <option value="ม.2">ม.2</option>
+          <!-- เพิ่ม option อื่นๆ -->
+        </select>
+
+        <label for="date">วันที่</label>
+        <input type="date" id="date" name="date" />
+
+        <button type="submit" class="submit-btn">เรียกดู</button>
+
+        <label for="attendance">การมาเข้าแถว</label>
+        <select id="attendance" name="attendance">
+          <option value="">เลือก</option>
+          <option value="ปกติ">ปกติ</option>
+          <option value="สาย">สาย</option>
+        </select>
+
+        <label class="checkbox-label">
+          <input type="checkbox" name="student_type" value="normal" />
+          เฉพาะนักเรียนสถานะปกติหรือสำเร็จการศึกษา
+        </label>
+      </form>
+    </div>
+
     <section class="content-box">
       <h3>ฟังก์ชันหลัก</h3>
       <ol class="top-list">
@@ -490,6 +535,7 @@
         </li>
       </ol>
     </section>
+
 
     <footer>
       © ระบบจัดการสารสนเทศ<br />
