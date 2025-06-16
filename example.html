@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Web Example - No Sidebar</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; }
+    .container { max-width: 1200px; margin: auto; padding: 16px; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #2d3748; color: #fff;}
+    .navbar .menu { display: flex; gap: 24px; }
+    .hero { background: #edf2f7; padding: 48px 16px; text-align: center;}
+    .hero h1 { margin-bottom: 16px; }
+    .btn { padding: 10px 24px; background: #4299e1; color: #fff; border: none; border-radius: 8px;}
+    .row { display: flex; flex-wrap: wrap; gap: 16px; }
+    .content { width: 100%; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 16px;}
+    .footer { background: #2d3748; color: #fff; text-align: center; padding: 24px;}
+    .breadcrumb { font-size: 14px; margin-bottom: 24px; }
+    .breadcrumb a { color: #3182ce; text-decoration: none; margin-right: 4px;}
+    .tab-group { display: flex; border-bottom: 1px solid #e2e8f0; margin-bottom: 16px; }
+    .tab { padding: 12px 20px; cursor: pointer;}
+    .tab.active { border-bottom: 2px solid #4299e1; font-weight: bold;}
+    .accordion { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 16px;}
+    .accordion-summary { padding: 16px; cursor: pointer; background: #f1f5f9;}
+    .accordion-content { padding: 16px; display: none;}
+    .accordion.active .accordion-content { display: block; }
+    .form-group { margin-bottom: 16px;}
+    .modal { display: none; position: fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items: center; justify-content: center;}
+    .modal-content { background: #fff; padding: 32px; border-radius: 10px; min-width: 300px;}
+    .toast { position: fixed; top: 24px; right: 24px; background: #48bb78; color: #fff; padding: 16px 24px; border-radius: 8px; display: none;}
+    table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+    th, td { border: 1px solid #e2e8f0; padding: 10px 8px; text-align: left; }
+    th { background: #f1f5f9; }
+    .table-title { font-weight: bold; margin-top: 32px; margin-bottom: 8px;}
+    /* Example div table */
+    .div-table { display: flex; flex-direction: column; border: 1px solid #e2e8f0; margin-bottom: 24px; }
+    .div-table-row { display: flex; }
+    .div-table-header { background: #f1f5f9; font-weight: bold; }
+    .div-table-cell { flex: 1; padding: 10px 8px; border-right: 1px solid #e2e8f0; }
+    .div-table-row:last-child .div-table-cell { border-bottom: none; }
+    .div-table-cell:last-child { border-right: none; }
+    @media (max-width: 800px) {
+      .row { flex-direction: column;}
+      .content { width: 100%; }
+    }
+    /* For file input */
+    input[type="file"] { border: 1px solid #e2e8f0; border-radius: 6px; padding: 4px; }
+    /* For range input */
+    input[type="range"] { width: 100%; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">MySite</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Contact</a>
+      <a href="#">Login</a>
+    </div>
+    <div class="hamburger" style="display:none;">&#9776;</div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="#">Home</a> &gt;
+      <a href="#">Products</a> &gt;
+      <span>Product Name</span>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Welcome to My Responsive Site</h1>
+    <p>Build modern web layouts easily with ready-to-use components.</p>
+    <button class="btn">Get Started</button>
+  </div>
+
+  <!-- Main Content (no sidebar) -->
+  <div class="container">
+    <main class="content">
+
+      <!-- (1) Filter (from sidebar) -->
+      <div class="card">
+        <h3>Filter</h3>
+        <form>
+          <div class="form-group">
+            <label for="category">Category</label><br>
+            <select id="category">
+              <option>All</option>
+              <option>Web</option>
+              <option>Mobile</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><input type="checkbox"> In Stock</label>
+          </div>
+        </form>
+      </div>
+
+      <!-- (2) Accordion (from sidebar) -->
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-summary" onclick="toggleAccordion(this)">FAQ 1</div>
+        <div class="accordion-content">Answer for FAQ 1</div>
+      </div>
+      <div class="accordion" id="faqAccordion2">
+        <div class="accordion-summary" onclick="toggleAccordion(this)">FAQ 2</div>
+        <div class="accordion-content">Answer for FAQ 2</div>
+      </div>
+
+      <!-- (3) Tabs -->
+      <div class="tab-group">
+        <div class="tab active" onclick="switchTab(0)">Overview</div>
+        <div class="tab" onclick="switchTab(1)">Details</div>
+        <div class="tab" onclick="switchTab(2)">Reviews</div>
+      </div>
+      <div id="tabContent0">
+        <!-- (4) Card Grid -->
+        <div class="row">
+          <div class="card" style="flex:1;">
+            <img src="https://placehold.co/300x180" alt="Product 1" style="width:100%; border-radius:8px; aspect-ratio: 16/9;">
+            <h4>Product 1</h4>
+            <p>Product description here.</p>
+            <button class="btn" onclick="showModal()">Buy Now</button>
+          </div>
+          <div class="card" style="flex:1;">
+            <img src="https://placehold.co/300x180" alt="Product 2" style="width:100%; border-radius:8px; aspect-ratio: 16/9;">
+            <h4>Product 2</h4>
+            <p>Product description here.</p>
+            <button class="btn" onclick="showToast('Added to cart!')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div id="tabContent1" style="display:none;">
+        <div class="card">
+          <h4>Details</h4>
+          <p>Longer product details...</p>
+        </div>
+      </div>
+      <div id="tabContent2" style="display:none;">
+        <div class="card">
+          <h4>Reviews</h4>
+          <p>Customer reviews go here...</p>
+        </div>
+      </div>
+
+      <!-- (5) Form - ครบทุกประเภท -->
+      <div class="card">
+        <h4>Full Form Example</h4>
+        <form>
+          <div class="form-group">
+            <label for="text">Text Input</label><br>
+            <input type="text" id="text" placeholder="Enter text">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="number">Number</label><br>
+            <input type="number" id="number" min="0" max="100">
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label><br>
+            <input type="date" id="date">
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label><br>
+            <input type="time" id="time">
+          </div>
+          <div class="form-group">
+            <label for="file">File Upload</label><br>
+            <input type="file" id="file">
+          </div>
+          <div class="form-group">
+            <label for="range">Range Slider</label><br>
+            <input type="range" id="range" min="0" max="100">
+          </div>
+          <div class="form-group">
+            <label for="textarea">Textarea</label><br>
+            <textarea id="textarea" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Gender</label><br>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+          </div>
+          <div class="form-group">
+            <label>Hobbies</label><br>
+            <label><input type="checkbox" name="hobby" value="music"> Music</label>
+            <label><input type="checkbox" name="hobby" value="reading"> Reading</label>
+            <label><input type="checkbox" name="hobby" value="sports"> Sports</label>
+          </div>
+          <div class="form-group">
+            <label for="select">Select</label><br>
+            <select id="select">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+
+      <!-- (6) Tables (native) -->
+      <div class="table-title">Table: 4 Columns</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Anna</td>
+            <td>Smith</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>John</td>
+            <td>Doe</td>
+            <td>Inactive</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-title">Table: 6 Columns</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Alex Lee</td>
+            <td>alex@example.com</td>
+            <td>0123456789</td>
+            <td>Admin</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Kate Kim</td>
+            <td>kate@example.com</td>
+            <td>0987654321</td>
+            <td>User</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- (7) Table (div-based) -->
+      <div class="table-title">Div Table: 3 Columns</div>
+      <div class="div-table">
+        <div class="div-table-row div-table-header">
+          <div class="div-table-cell">Product</div>
+          <div class="div-table-cell">Price</div>
+          <div class="div-table-cell">Stock</div>
+        </div>
+        <div class="div-table-row">
+          <div class="div-table-cell">Apple</div>
+          <div class="div-table-cell">$1</div>
+          <div class="div-table-cell">25</div>
+        </div>
+        <div class="div-table-row">
+          <div class="div-table-cell">Banana</div>
+          <div class="div-table-cell">$0.8</div>
+          <div class="div-table-cell">42</div>
+        </div>
+      </div>
+
+      <div class="table-title">Div Table: 2 Columns</div>
+      <div class="div-table">
+        <div class="div-table-row div-table-header">
+          <div class="div-table-cell">Key</div>
+          <div class="div-table-cell">Value</div>
+        </div>
+        <div class="div-table-row">
+          <div class="div-table-cell">Country</div>
+          <div class="div-table-cell">Thailand</div>
+        </div>
+        <div class="div-table-row">
+          <div class="div-table-cell">City</div>
+          <div class="div-table-cell">Bangkok</div>
+        </div>
+      </div>
+
+      <!-- Footer ยังอยู่ใน main เพื่อความง่าย (สามารถย้ายออกได้) -->
+      <footer class="footer">
+        &copy; 2025 MySite. All rights reserved. | Follow us:
+        <a href="#" style="color: #90cdf4;">Facebook</a> |
+        <a href="#" style="color: #90cdf4;">Twitter</a>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="myModal" onclick="hideModal(event)">
+    <div class="modal-content">
+      <h3>Order Product</h3>
+      <p>Product order form...</p>
+      <button class="btn" onclick="hideModal(event)">Close</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="myToast"></div>
+
+  <script>
+    // Accordion
+    function toggleAccordion(el) {
+      var parent = el.parentNode;
+      parent.classList.toggle('active');
+    }
+    // Tab
+    function switchTab(idx) {
+      for(let i=0;i<3;i++) {
+        document.querySelectorAll('.tab')[i].classList.remove('active');
+        document.getElementById('tabContent'+i).style.display = 'none';
+      }
+      document.querySelectorAll('.tab')[idx].classList.add('active');
+      document.getElementById('tabContent'+idx).style.display = 'block';
+    }
+    // Modal
+    function showModal() {
+      document.getElementById('myModal').style.display = 'flex';
+    }
+    function hideModal(e) {
+      if(e.target.classList.contains('modal') || e.type === 'click') {
+        document.getElementById('myModal').style.display = 'none';
+      }
+    }
+    // Toast
+    function showToast(msg) {
+      var toast = document.getElementById('myToast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2000);
+    }
+  </script>
+</body>
+</html>
