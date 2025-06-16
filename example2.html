@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>HTML Prototype - Responsive Web Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+
+    header,
+    footer {
+      background: #1976d2;
+      color: white;
+      padding: 1rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+    }
+
+    /* Responsive Table */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    /* Responsive Forms: Flex for desktop, block for mobile */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .form-group {
+      flex: 1 1 200px;
+      min-width: 180px;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    /* Chart Placeholder */
+    .chart-placeholder {
+      height: 320px;
+      background: #e3eafc;
+      border: 2px dashed #90caf9;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1976d2;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.5rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Responsive Web Prototype</h1>
+  </header>
+  <main>
+    <!-- Section: Example Forms -->
+    <section>
+      <h2>Forms Example</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="text">Text Field</label>
+            <input type="text" id="text" placeholder="Enter text">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Field</label>
+            <input type="email" id="email" placeholder="example@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password">Password Field</label>
+            <input type="password" id="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="number">Number Field</label>
+            <input type="number" id="number" placeholder="123">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="select">Select Option</label>
+            <select id="select">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Radio Group</label>
+            <input type="radio" id="radio1" name="radio" checked>
+            <label for="radio1" style="font-weight:normal">Radio 1</label>
+            <input type="radio" id="radio2" name="radio">
+            <label for="radio2" style="font-weight:normal">Radio 2</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Checkbox</label>
+            <input type="checkbox" id="checkbox1" checked>
+            <label for="checkbox1" style="font-weight:normal">Checkbox 1</label>
+            <input type="checkbox" id="checkbox2">
+            <label for="checkbox2" style="font-weight:normal">Checkbox 2</label>
+          </div>
+          <div class="form-group">
+            <label for="textarea">Textarea</label>
+            <textarea id="textarea" rows="3" placeholder="Type your message..."></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Section: Table Example with 5 Columns (Sample Data, 10 Rows) -->
+    <section>
+      <h2>ตารางข้อมูลนักเรียน</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ที่</th>
+              <th>ชื่อ-สกุล</th>
+              <th>สถานะ</th>
+              <th>คะแนนความประพฤติ</th>
+              <th>หมู่บ้านอาศัย</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>อนุชา ใจดี</td>
+              <td>ปกติ</td>
+              <td>98</td>
+              <td>หนองใหญ่</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>สมปอง คำใส</td>
+              <td>ปกติ</td>
+              <td>95</td>
+              <td>ห้วยใหญ่</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>ณัฐวุฒิ แซ่ตั้ง</td>
+              <td>ดีมาก</td>
+              <td>100</td>
+              <td>หัวทุ่ง</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>สุภาพร อินทร์สุข</td>
+              <td>ปกติ</td>
+              <td>97</td>
+              <td>บ้านใหม่</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>วรัญญา ศรีคำ</td>
+              <td>ปกติ</td>
+              <td>96</td>
+              <td>หนองใหญ่</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>ชลธิชา สมสุข</td>
+              <td>ดี</td>
+              <td>99</td>
+              <td>โพธิ์ทอง</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>ทศพล ดวงดี</td>
+              <td>ปกติ</td>
+              <td>93</td>
+              <td>หนองใหญ่</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>ณิชาภา โชคดี</td>
+              <td>ปกติ</td>
+              <td>94</td>
+              <td>หัวทุ่ง</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>พิชญา เพียรดี</td>
+              <td>ดีมาก</td>
+              <td>100</td>
+              <td>บ้านใหม่</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>ธนวัฒน์ ทรงชัย</td>
+              <td>ปกติ</td>
+              <td>95</td>
+              <td>ห้วยใหญ่</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section: Table Examples with different columns -->
+    <section>
+      <h2>Table: 3 Columns</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>รหัส</th>
+              <th>รายการ</th>
+              <th>ราคา</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>P001</td>
+              <td>กระเป๋า</td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>P002</td>
+              <td>รองเท้า</td>
+              <td>700</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Table: 6 Columns</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Registered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>U01</td>
+              <td>James Lee</td>
+              <td>james@example.com</td>
+              <td>Admin</td>
+              <td>Active</td>
+              <td>2024-05-10</td>
+            </tr>
+            <tr>
+              <td>U02</td>
+              <td>Sara Wong</td>
+              <td>sara@example.com</td>
+              <td>User</td>
+              <td>Inactive</td>
+              <td>2024-01-21</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Chart Placeholders -->
+    <section>
+      <h2>แผนภูมิแท่ง (Bar Chart)</h2>
+      <div class="chart-placeholder">[ Bar Chart Placeholder ]</div>
+    </section>
+
+    <section>
+      <h2>แผนภูมิวงกลม (Pie Chart)</h2>
+      <div class="chart-placeholder">[ Pie Chart Placeholder ]</div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Responsive Web Prototype Example
+  </footer>
+</body>
+
+</html>
