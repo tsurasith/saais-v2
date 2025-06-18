@@ -164,11 +164,219 @@
             margin-right: 12px;
         }
 
-        .module-header h2 {
+
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .module-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .module-title {
+            flex: 1 1 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 180px;
+        }
+
+        .module-title h2 {
             font-size: 1.5rem;
             color: #a31e25;
-            margin: 0 20px 0 0;
+            margin: 0 0 2px 0;
         }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #007bff;
+        }
+
+        .module-header-form {
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            min-width: 320px;
+            margin-left: auto;
+            gap: 0;
+            /* ให้ row มีระยะห่างจาก margin ของแต่ละ row */
+        }
+
+        .module-header-form .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .module-header-form .form-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .module-header-form .row-academic {
+            font-size: 1.2rem;
+            font-weight: bold;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .module-header-form .label-academic {
+            color: #444;
+            font-size: 1.15rem;
+        }
+
+        .module-header-form .value-academic {
+            color: #a31e25;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .module-header-form .label-semester {
+            color: #444;
+            font-size: 1.15rem;
+            margin-left: 12px;
+        }
+
+        .module-header-form .value-semester {
+            color: #007bff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Label alignment & width */
+        .module-header-form label,
+        .module-header-form .checkbox-label {
+            color: #444;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0;
+            min-width: 100px;
+            max-width: 160px;
+            text-align: right;
+            margin-right: 12px;
+            flex: 0 0 140px;
+            white-space: nowrap;
+        }
+
+        .module-header-form .checkbox-label {
+            text-align: left;
+            flex: 1 1 0;
+            margin-right: 0;
+            gap: 8px;
+        }
+
+        .module-header-form select,
+        .module-header-form input[type="date"] {
+            padding: 3px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            flex: 1 1 0;
+        }
+
+        .module-header-form .row-submit {
+            justify-content: flex-end;
+        }
+
+        .module-header-form .submit-btn {
+            background: #a31e25;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.15s;
+        }
+
+        .module-header-form .submit-btn:hover {
+            background: #7c171d;
+        }
+
+        /* Responsive (Mobile) */
+        @media (max-width:900px) {
+            .module-header-form {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .module-header-form .row-submit {
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width:600px) {
+            .module-header-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .module-header-form .form-row,
+            .module-header-form .row-academic {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .module-header-form label,
+            .module-header-form .checkbox-label {
+                text-align: left;
+                flex: 1 1 100%;
+                min-width: 0;
+                margin-right: 0;
+                margin-bottom: 3px;
+                max-width: unset;
+            }
+
+            .module-header-form select,
+            .module-header-form input[type="date"] {
+                width: 100%;
+                flex: 1 1 100%;
+                min-width: 0;
+                margin-bottom: 0;
+            }
+
+            .module-header-form .row-academic span {
+                font-size: 1.15rem;
+                margin-right: 8px;
+            }
+
+            .module-header-form .row-submit {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+
+
+
+
+        @media (max-width:900px) {
+            .module-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .module-title {
+                margin-bottom: 10px;
+            }
+        }
+
+
 
         .subtitle {
             font-size: 1rem;
@@ -308,6 +516,7 @@
             .dropdown-toggle {
                 font-size: 0.85rem;
             }
+
 
             .module-header {
                 flex-direction: column;
@@ -492,6 +701,22 @@
 
             .table-container {
                 overflow-x: auto;
+            }
+
+            .module-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .module-title {
+                margin-bottom: 10px;
+            }
+
+            .module-header-form {
+                width: 100%;
+                flex: unset;
+                margin-left: 0;
+                gap: 8px 0;
             }
         }
 
@@ -678,60 +903,70 @@
             </div>
         </div>
 
+        <!-- ตัวอย่าง module-header แบบ 2 คอลัมน์ (ไม่มีฟอร์ม) -->
         <div class="module-header">
             <img alt="กิจกรรมหน้าเสาธง" class="module-icon"
                 src="https://cdn-icons-png.flaticon.com/512/3159/3159310.png" />
-            <div>
+            <div class="module-title">
                 <h2>กิจกรรมหน้าเสาธง</h2>
                 <div class="subtitle">ระบบบันทึกการเข้าร่วมกิจกรรมหน้าเสาธง</div>
             </div>
+            <!-- ไม่ใส่ form -->
         </div>
 
+        <!-- ส่วนของ module-header -->
         <div class="module-header">
-            <!-- ซ้าย: ไอคอน + หัวข้อ + subtitle -->
-            <div style="display: flex; align-items: center;">
-                <img alt="กิจกรรมหน้าเสาธง" class="module-icon"
-                    src="https://cdn-icons-png.flaticon.com/512/3159/3159310.png" />
-                <div style="margin-left: 12px;">
-                    <h2 style="margin: 0;">8.00 O' Clock</h2>
-                    <div class="subtitle" style="font-size: 1.1rem; color: #007bff; font-weight: bold;">3.3
-                        แบบรายงานประจำวัน
-                    </div>
-                </div>
+            <img alt="กิจกรรมหน้าเสาธง" class="module-icon"
+                src="https://cdn-icons-png.flaticon.com/512/3159/3159310.png" />
+            <div class="module-title">
+                <h2>8.00 O' Clock</h2>
+                <div class="subtitle">3.3 แบบรายงานประจำวัน</div>
             </div>
-            <!-- ขวา: ฟอร์ม -->
-            <form class="module-header-form">
-                <label class="school-year">ปีการศึกษา</label>
-                <span class="year-num">2568</span>
-                <label class="semester">ภาคเรียนที่</label>
-                <span class="semester-num">1</span>
-
-                <label for="level">ระดับชั้น</label>
-                <select id="level" name="level">
-                    <option value="">เลือก</option>
-                    <option value="ม.1">ม.1</option>
-                    <option value="ม.2">ม.2</option>
-                    <!-- เพิ่ม option อื่นๆ -->
-                </select>
-
-                <label for="date">วันที่</label>
-                <input type="date" id="date" name="date" />
-
-                <button type="submit" class="submit-btn">เรียกดู</button>
-
-                <label for="attendance">การมาเข้าแถว</label>
-                <select id="attendance" name="attendance">
-                    <option value="">เลือก</option>
-                    <option value="ปกติ">ปกติ</option>
-                    <option value="สาย">สาย</option>
-                </select>
-
-                <label class="checkbox-label">
-                    <input type="checkbox" name="student_type" value="normal" />
-                    เฉพาะนักเรียนสถานะปกติหรือสำเร็จการศึกษา
-                </label>
+            <form class="module-header-form" autocomplete="off">
+                <!-- ปีการศึกษา + ภาคเรียนที่ (แสดงแบบบรรทัดเดียว, สีแยกกัน) -->
+                <div class="form-row row-academic">
+                    <span class="label-academic">ปีการศึกษา</span>
+                    <span class="value-academic">2568</span>
+                    <span class="label-semester">ภาคเรียนที่</span>
+                    <span class="value-semester">1</span>
+                </div>
+                <!-- ระดับชั้น -->
+                <div class="form-row">
+                    <label for="level">ระดับชั้น</label>
+                    <select id="level" name="level">
+                        <option value="">เลือก</option>
+                        <option value="ม.1">ม.1</option>
+                        <option value="ม.2">ม.2</option>
+                    </select>
+                </div>
+                <!-- วันที่ -->
+                <div class="form-row">
+                    <label for="date">วันที่</label>
+                    <input type="date" id="date" name="date" />
+                </div>
+                <!-- การมาเข้าแถว -->
+                <div class="form-row">
+                    <label for="attendance">การมาเข้าแถว</label>
+                    <select id="attendance" name="attendance">
+                        <option value="">เลือก</option>
+                        <option value="ปกติ">ปกติ</option>
+                        <option value="สาย">สาย</option>
+                    </select>
+                </div>
+                <!-- เฉพาะนักเรียน... (checkbox) -->
+                <div class="form-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="student_type" value="normal" />
+                        เฉพาะนักเรียนสถานะปกติหรือสำเร็จการศึกษา
+                    </label>
+                </div>
+                <!-- ปุ่มเรียกดู -->
+                <div class="form-row row-submit">
+                    <button type="submit" class="submit-btn">เรียกดู</button>
+                </div>
             </form>
         </div>
+
 
         <section class="content-box">
             <h3>ฟังก์ชันหลัก</h3>
