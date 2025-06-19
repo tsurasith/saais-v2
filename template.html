@@ -237,7 +237,7 @@
 
         .module-header-form .label-academic {
             color: #444;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
         }
 
         .module-header-form .value-academic {
@@ -248,7 +248,7 @@
 
         .module-header-form .label-semester {
             color: #444;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             margin-left: 12px;
         }
 
@@ -977,6 +977,21 @@
                 </div>
                 <!-- ปุ่มเรียกดู -->
                 <div class="form-row row-submit">
+                    <label for="date2">วันที่</label>
+                    <input type="date" id="date2" name="date2" onchange="showBuddhistYear(this.value)">
+                    <span id="buddhistDate"></span>
+                    <script>
+                        function showBuddhistYear(val) {
+                            if (!val) {
+                                document.getElementById('buddhistDate').innerText = '';
+                                return;
+                            }
+                            const [y, m, d] = val.split('-');
+                            const buddhistYear = (+y) + 543;
+                            document.getElementById('buddhistDate').innerText = `(${d}/${m}/${buddhistYear})`;
+                        }
+                    </script>
+
                     <button type="submit" class="submit-btn">เรียกดู</button>
                 </div>
             </form>
