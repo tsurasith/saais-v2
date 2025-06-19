@@ -797,6 +797,108 @@
                 overflow-x: auto;
             }
         }
+
+
+
+        .row-academic {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-wrap: wrap;
+            /* <== สำคัญ! ให้ wrap อัตโนมัติ */
+        }
+
+        .academic-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .year-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            border-radius: 3px;
+            transition: background 0.15s;
+            cursor: pointer;
+            text-decoration: none;
+            align-self: center;
+        }
+
+        .year-arrow img {
+            width: 10px;
+            height: 10px;
+            display: block;
+            filter: grayscale(30%) brightness(1.1);
+            margin: 0;
+            vertical-align: middle;
+        }
+
+        .year-arrow:hover {
+            background: #f0f0f0;
+        }
+
+        .value-academic {
+            min-width: 38px;
+            text-align: center;
+            display: inline-block;
+            color: #a31e25;
+            font-size: 1.1rem;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .value-semester {
+            min-width: 30px;
+            text-align: center;
+            display: inline-block;
+            color: #007bff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .label-academic,
+        .label-semester {
+            color: #444;
+            font-size: 1rem;
+            vertical-align: middle;
+        }
+
+        .label-semester {
+            margin-left: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .row-academic {
+                font-size: 1.05rem;
+                gap: 10px;
+            }
+
+            .academic-group {
+                gap: 3px;
+                font-size: 1.04rem;
+            }
+
+            .value-academic,
+            .value-semester {
+                font-size: 1rem;
+                min-width: 24px;
+            }
+
+            .label-academic,
+            .label-semester {
+                font-size: 0.96rem;
+            }
+
+            .year-arrow img {
+                width: 10px;
+                height: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -933,11 +1035,25 @@
             <form class="module-header-form" autocomplete="off">
                 <!-- ปีการศึกษา + ภาคเรียนที่ (แสดงแบบบรรทัดเดียว, สีแยกกัน) -->
                 <div class="form-row row-academic">
-                    <span class="label-academic">ปีการศึกษา</span>
-                    <span class="value-academic">2568</span>
-                    <span class="label-semester">ภาคเรียนที่</span>
-                    <span class="value-semester">1</span>
+                    <div class="academic-group year-group">
+                        <span class="label-academic">ปีการศึกษา</span>
+                        <a href="#" class="year-arrow year-prev"><img src="https://nnschool.app/images/pull_left.gif"
+                                alt="prev"></a>
+                        <span class="value-academic">2568</span>
+                        <a href="#" class="year-arrow year-next"><img src="https://nnschool.app/images/pull_right.gif"
+                                alt="next"></a>
+                    </div>
+                    <div class="academic-group semester-group">
+                        <span class="label-semester">ภาคเรียนที่</span>
+                        <a href="#" class="year-arrow sem-prev"><img src="https://nnschool.app/images/pull_left.gif"
+                                alt="prev"></a>
+                        <span class="value-semester">1</span>
+                        <a href="#" class="year-arrow sem-next"><img src="https://nnschool.app/images/pull_right.gif"
+                                alt="next"></a>
+                    </div>
                 </div>
+
+
                 <!-- ระดับชั้น -->
                 <div class="form-row">
                     <label for="level">ระดับชั้น</label>
