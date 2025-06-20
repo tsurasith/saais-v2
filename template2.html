@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Portal | ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,12 +20,18 @@
         }
 
         header {
-            background: #a31e25;
-            color: #fff;
-            padding: 12px 20px;
+            font-family: 'Kanit', sans-serif;
+            background: #ffffff;
+            color: #A31E25;
+            padding: 5px 30px;
             display: flex;
             justify-content: space-between;
+            box-shadow: 0 2px 8px #c2c2c2;
+            border-bottom: 1px solid #dee2e6;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .system-title {
@@ -33,14 +40,14 @@
         }
 
         .logo {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
+            width: 45px;
+            height: 45px;
+            /* object-fit: cover; */
             margin-right: 10px;
         }
 
         .title-text {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
@@ -112,7 +119,7 @@
 
         .module-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
             gap: 20px;
         }
 
@@ -123,6 +130,7 @@
             padding: 6px;
             text-align: center;
             transition: box-shadow 0.2s;
+            min-height: 125px;
         }
 
         .module-item:hover {
@@ -382,6 +390,24 @@
         }
 
 
+        @media (max-width: 600px) {
+            .module-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: 10px;
+            }
+
+            .module-item {
+                min-height: 100px;
+                /* ถ้าจอแคบมาก ให้กล่องเตี้ยลงเล็กน้อย */
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .module-item .label {
+                font-size: 0.9rem;
+                /* ปรับขนาดข้อความให้อ่านง่ายขึ้น */
+            }
+        }
 
 
 
@@ -928,7 +954,9 @@
 <body>
     <header>
         <div class="system-title">
-            <img alt="Logo" class="logo" src="https://nnschool.app/images/school_logo.gif" />
+            <a href="index.html" style="color:inherit; text-decoration:none;">
+                <img alt="Logo" class="logo" src="https://nnschool.app/images/school_logo.gif" />
+            </a>
             <a href="index.html" style="color:inherit; text-decoration:none;">
                 <span class="title-text">ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</span>
             </a>
