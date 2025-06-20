@@ -204,6 +204,7 @@
         }
 
         .module-title {
+            font-family: 'Kanit', sans-serif;
             flex: 1 1 0%;
             display: flex;
             flex-direction: column;
@@ -223,10 +224,11 @@
         }
 
         .module-header-form {
+            font-family: 'Kanit', sans-serif;
             flex: 0 0 55%;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-end;
             /* ชิดซ้าย */
             min-width: 320px;
             margin-left: auto;
@@ -236,7 +238,7 @@
         .module-header-form .form-row {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: flex-end;
             margin-bottom: 10px;
             width: auto;
             gap: 12px;
@@ -269,7 +271,6 @@
         .module-header-form .label-semester {
             color: #444;
             font-size: 1.25rem;
-            margin-left: 12px;
         }
 
         .module-header-form .value-semester {
@@ -284,10 +285,7 @@
             font-weight: 500;
             font-size: 1rem;
             margin-bottom: 0;
-            min-width: 50px;
-            max-width: 140px;
             text-align: left;
-            margin-right: 6px;
             flex: 0 0 auto;
             white-space: nowrap;
         }
@@ -340,21 +338,21 @@
             }
 
             .module-header-form .row-submit {
-                justify-content: flex-start;
+                justify-content: flex-end;
             }
         }
 
         @media (max-width:600px) {
             .module-header-form {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: flex-end;
             }
 
             .module-header-form .form-row,
             .module-header-form .row-academic {
                 flex-direction: row;
                 flex-wrap: wrap;
-                align-items: flex-start;
+                align-items: flex-end;
                 width: 100%;
                 margin-bottom: 10px;
                 gap: 10px;
@@ -362,7 +360,7 @@
 
             .module-header-form label,
             .module-header-form .checkbox-label {
-                text-align: left;
+                text-align: right;
                 flex: 0 0 auto;
                 min-width: 0;
                 margin-right: 0;
@@ -380,12 +378,11 @@
 
             .module-header-form .row-academic span {
                 font-size: 1.15rem;
-                margin-right: 8px;
             }
 
             .module-header-form .row-submit {
                 width: auto;
-                justify-content: flex-start;
+                justify-content: flex-end;
             }
         }
 
@@ -895,7 +892,7 @@
         }
 
         .value-semester {
-            min-width: 30px;
+            min-width: 12px;
             text-align: center;
             display: inline-block;
             color: #007bff;
@@ -927,10 +924,14 @@
                 font-size: 1.04rem;
             }
 
-            .value-academic,
-            .value-semester {
+            .value-academic{
                 font-size: 1rem;
                 min-width: 24px;
+                margin: 0 1px;
+            }
+            .value-semester {
+                font-size: 1rem;
+                min-width: 10px;
                 margin: 0 1px;
             }
 
