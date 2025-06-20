@@ -263,7 +263,7 @@
         }
 
         .module-header-form .value-academic {
-            color: #a31e25;
+            color: #007bff;
             font-size: 1.5rem;
             font-weight: bold;
         }
@@ -606,14 +606,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 36px 0 20px 0;
+            margin: 5px 0 5px 0;
         }
 
         .report-header .logo {
             width: 130px;
             height: 130px;
             object-fit: contain;
-            margin-bottom: 8px;
         }
 
         .report-header .report-title {
@@ -924,11 +923,12 @@
                 font-size: 1.04rem;
             }
 
-            .value-academic{
+            .value-academic {
                 font-size: 1rem;
                 min-width: 24px;
                 margin: 0 1px;
             }
+
             .value-semester {
                 font-size: 1rem;
                 min-width: 10px;
@@ -947,6 +947,35 @@
 
             .semester-group {
                 gap: 1px;
+            }
+
+
+            .report-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 5px 0 5px 0;
+            }
+
+            /* report header */
+            .report-header .logo {
+                width: 110px;
+                height: 110px;
+                object-fit: contain;
+            }
+
+            .report-header .report-title {
+                font-size: 1.05rem;
+                font-weight: bold;
+                margin: 4px 0 2px 0;
+                text-align: center;
+            }
+
+            .report-header .report-desc {
+                font-size: 0.8rem;
+                color: #222;
+                text-align: center;
+                font-weight: bold;
             }
         }
     </style>
@@ -1189,8 +1218,8 @@
                 </div>
                 <!-- การมาเข้าแถว -->
                 <div class="form-row">
-                    <label for="attendance">การมาเข้าแถว</label>
-                    <select id="attendance" name="attendance">
+                    <label for="attendance2">การมาเข้าแถว</label>
+                    <select id="attendance2" name="attendance2">
                         <option value="">เลือก</option>
                         <option value="ปกติ">ปกติ</option>
                         <option value="สาย">สาย</option>
