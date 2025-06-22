@@ -882,6 +882,7 @@
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
             gap: 10px 2px;
             justify-items: center;
+            counter-reset: photono;
         }
 
         .student-card {
@@ -896,11 +897,36 @@
             transition: transform 0.15s, box-shadow 0.15s;
             min-width: 140px;
             max-width: 220px;
+            position: relative;
+            counter-increment: photono;
         }
 
         .student-card:hover {
             transform: translateY(-2px) scale(1.03);
             box-shadow: 0 6px 24px rgba(120, 0, 60, 0.11);
+        }
+
+        .student-card .photo-frame {
+            position: relative;
+        }
+
+        .student-card .photo-frame::before {
+            content: counter(photono);
+            position: absolute;
+            top: 212px;
+            left: 7px;
+            z-index: 2;
+            background: #830fa9;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 27px;
+            height: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px #0002;
         }
 
         .photo-frame {
@@ -999,6 +1025,18 @@
             .student-email,
             .student-contact {
                 font-size: 0.7rem;
+            }
+
+            .student-card .photo-frame::before {
+                content: counter(photono);
+                position: absolute;
+                top: 130px;
+                left: 4px;
+                color: #fff;
+                font-size: 0.9rem;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
