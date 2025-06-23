@@ -1039,6 +1039,239 @@
                 height: 24px;
             }
         }
+
+
+        /* Notification Messages */
+        .msg {
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            /* หรือ 50%, 70% ตามที่ต้องการ */
+            max-width: 640px;
+            /* เพื่อไม่ให้ยาวเกิน */
+            min-width: 480px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            display: block;
+            letter-spacing: 0.01em;
+            box-shadow: 0 1px 8px #0001;
+        }
+
+        .msg-success {
+            background: #eaffea;
+            color: #128100;
+            border: 1px solid #77d486;
+        }
+
+        .msg-info {
+            background: #e5f0ff;
+            color: #2166c0;
+            border: 1px solid #7bb7f0;
+        }
+
+        .msg-error {
+            background: #fff3f3;
+            color: #c00303;
+            border: 1px solid #f199a3;
+        }
+
+        .msg-warning {
+            background: #fff7e0;
+            color: #8a6500;
+            border: 1px solid #f5ce6e;
+        }
+
+        .msg-standard {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #d3d2ce;
+        }
+
+        /* Table layout for form */
+        .form-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 5px;
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .form-table td {
+            padding: 8px 6px;
+            vertical-align: middle;
+        }
+
+        .form-table label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-table input,
+        .form-table select,
+        .form-table textarea {
+            width: 95%;
+            padding: 6px 9px;
+            border: 1px solid #b9b9b9;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border 0.18s;
+        }
+
+        .form-table input:focus,
+        .form-table select:focus,
+        .form-table textarea:focus {
+            border: 1.5px solid #3173ff;
+            outline: none;
+            background: #eaf4ff;
+        }
+
+        .form-table button.btn-form {
+            margin-right: 8px;
+        }
+
+        /* Modern horizontal form */
+        .standard-form {
+            max-width: 420px;
+            margin: 18px 0 0 0;
+            background: #f5f9fc;
+            border-radius: 8px;
+            padding: 22px 18px;
+            border: 1px solid #e2eaf1;
+        }
+
+        .standard-form .form-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .standard-form label {
+            margin-bottom: 4px;
+            color: #2252a2;
+            font-weight: 500;
+        }
+
+        .standard-form input,
+        .standard-form select {
+            padding: 7px 10px;
+            border: 1px solid #b2b8c8;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #fff;
+            transition: border 0.15s;
+        }
+
+        .standard-form input:focus,
+        .standard-form select:focus {
+            border: 1.5px solid #2c7efa;
+            background: #f1f7fe;
+        }
+
+        .standard-form button.btn-form {
+            margin-top: 4px;
+            width: 100%;
+        }
+
+        /* Buttons */
+        .btn-form {
+            background: #3577ef;
+            color: #fff;
+            padding: 8px 22px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.18s;
+            box-shadow: 0 1px 8px #0001;
+        }
+
+        .btn-form:hover,
+        .btn-form:focus {
+            background: #2355b6;
+        }
+
+        .btn-form.btn-cancel {
+            background: #bdbdbd;
+            color: #333;
+        }
+
+        .btn-form.btn-cancel:hover,
+        .btn-form.btn-cancel:focus {
+            background: #a9a9a9;
+        }
+
+        /* Generic message (div/span ทั่วไป) */
+        .generic-message {
+            color: #1a3159;
+            font-size: 0.99rem;
+            margin: 10px 0 0 0;
+            display: inline-block;
+        }
+
+        /* Responsive สำหรับฟอร์ม */
+        @media (max-width: 700px) {
+
+            .form-table,
+            .form-table td {
+                font-size: 0.99rem;
+            }
+
+            .form-table input,
+            .form-table select,
+            .form-table textarea {
+                font-size: 0.97rem;
+                padding: 5px 6px;
+            }
+
+            .standard-form {
+                padding: 14px 5vw;
+                max-width: 98vw;
+            }
+
+            .standard-form label {
+                font-size: 0.97rem;
+            }
+
+            .standard-form button.btn-form {
+                font-size: 1rem;
+                padding: 7px 1vw;
+            }
+        }
+
+        /* ปรับปุ่มในฟอร์ม table ให้อยู่กลางบนจอเล็ก */
+        @media (max-width: 600px) {
+            .msg {
+                width: 95%;
+                min-width: 0;
+            }
+
+            .form-table td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-table tr {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .form-table label {
+                margin-bottom: 4px;
+            }
+
+            .form-table input,
+            .form-table select,
+            .form-table textarea {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -1316,7 +1549,7 @@
             </form>
         </div>
 
-
+        <!-- section หน้าเมนูของแต่ละ module -->
         <section class="content-box">
             <h3>ฟังก์ชันหลัก</h3>
             <ol class="top-list">
@@ -1341,6 +1574,117 @@
                 </li>
             </ol>
         </section>
+
+        <!-- section ของ standard-form และ standard-message -->
+        <section class="content-box">
+            <h3>Standard HTML Form & Messages</h3>
+
+            <!-- ตัวอย่าง Notification -->
+            <div class="msg msg-success">ส่งข้อมูลสำเร็จ! ขอบคุณค่ะ</div>
+            <div class="msg msg-info">ข้อมูลนี้ใช้สำหรับทดสอบเท่านั้น</div>
+            <div class="msg msg-error">เกิดข้อผิดพลาด: กรุณากรอกข้อมูลให้ครบ</div>
+            <div class="msg msg-warning">คำเตือน: กำลังจะลบข้อมูลถาวร</div>
+            <div class="msg msg-standard">ข้อความธรรมดา</div>
+
+            <!-- ฟอร์มในตาราง -->
+            <table class="form-table">
+                <tr>
+                    <td><label for="text1">Text (input[type=text])</label></td>
+                    <td><input type="text" id="text1" name="text1" placeholder="กรอกข้อความ" /></td>
+                </tr>
+                <tr>
+                    <td><label for="password1">Password</label></td>
+                    <td><input type="password" id="password1" name="password1" /></td>
+                </tr>
+                <tr>
+                    <td><label for="email1">Email</label></td>
+                    <td><input type="email" id="email1" name="email1" placeholder="your@email.com" /></td>
+                </tr>
+                <tr>
+                    <td><label for="number1">Number</label></td>
+                    <td><input type="number" id="number1" name="number1" /></td>
+                </tr>
+                <tr>
+                    <td><label for="date1">Date</label></td>
+                    <td><input type="date" id="date1" name="date1" /></td>
+                </tr>
+                <tr>
+                    <td><label for="time1">Time</label></td>
+                    <td><input type="time" id="time1" name="time1" /></td>
+                </tr>
+                <tr>
+                    <td><label for="file1">File</label></td>
+                    <td><input type="file" id="file1" name="file1" /></td>
+                </tr>
+                <tr>
+                    <td><label for="select1">Select</label></td>
+                    <td>
+                        <select id="select1" name="select1">
+                            <option value="">-- เลือก --</option>
+                            <option value="one">ตัวเลือก 1</option>
+                            <option value="two">ตัวเลือก 2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Radio</label></td>
+                    <td>
+                        <input type="radio" id="radio1" name="radio-group" value="1" /><label for="radio1">Radio
+                            1</label>
+                        <input type="radio" id="radio2" name="radio-group" value="2" /><label for="radio2">Radio
+                            2</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Checkbox</label></td>
+                    <td>
+                        <input type="checkbox" id="chk1" name="chk-group" value="a" /><label for="chk1">ตัวเลือก
+                            A</label>
+                        <input type="checkbox" id="chk2" name="chk-group" value="b" /><label for="chk2">ตัวเลือก
+                            B</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="textarea1">Textarea</label></td>
+                    <td><textarea id="textarea1" name="textarea1" rows="3" placeholder="พิมพ์ข้อความ"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <button class="btn-form" type="submit">Submit</button>
+                        <button class="btn-form btn-cancel" type="reset">Reset</button>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- ฟอร์มแยกแนวนอน นอก table -->
+            <form class="standard-form">
+                <div class="form-row">
+                    <label for="sampleText">Text</label>
+                    <input type="text" id="sampleText" name="sampleText" placeholder="Text" />
+                </div>
+                <div class="form-row">
+                    <label for="sampleEmail">Email</label>
+                    <input type="email" id="sampleEmail" name="sampleEmail" placeholder="your@email.com" />
+                </div>
+                <div class="form-row">
+                    <label for="sampleSelect">Select</label>
+                    <select id="sampleSelect" name="sampleSelect">
+                        <option value="">-- เลือก --</option>
+                        <option>ตัวเลือก 1</option>
+                        <option>ตัวเลือก 2</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <button class="btn-form" type="submit">ส่งข้อมูล</button>
+                </div>
+            </form>
+
+            <!-- แสดงข้อความทั่วไป -->
+            <div class="generic-message">ข้อความปกติหรือแจ้งเตือนทั่วๆ ไป (div)</div>
+            <span class="generic-message">ตัวอย่างข้อความ (span)</span>
+        </section>
+
+
 
         <!-- section ทำเนียบรูปภาพ-->
         <section class="content-box">
