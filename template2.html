@@ -1244,6 +1244,16 @@
             }
         }
 
+        /* ทำให้ table ภายใต้ .form-table จัดกลาง */
+        @media (min-width: 700px) {
+            form.form-table>table {
+                margin-left: auto;
+                margin-right: auto;
+                /* เลือกกำหนดความกว้าง เช่น */
+                /* width: 70%; */
+            }
+        }
+
 
         /* ปรับปุ่มในฟอร์ม table ให้อยู่กลางบนจอเล็ก */
         @media (max-width: 600px) {
@@ -1270,7 +1280,9 @@
             .form-table input,
             .form-table select,
             .form-table textarea {
+                width: 100% !important;
                 min-width: 10px;
+                max-width: 100% !important;
             }
 
         }
@@ -1593,7 +1605,7 @@
                 <table>
                     <tr>
                         <td><label for="text1">Text (input[type=text])</label></td>
-                        <td><input type="text" id="text1" name="text1" placeholder="กรอกข้อความ" /></td>
+                        <td><input type="text" id="text1" name="text1" size="40" placeholder="กรอกข้อความ" /></td>
                     </tr>
                     <tr>
                         <td><label for="password1">Password</label></td>
