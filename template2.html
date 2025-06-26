@@ -1092,7 +1092,7 @@
 
         /* Table layout for form */
         .form-table {
-            font-family: 'Kanit',sans-serif;
+            font-family: 'Kanit', sans-serif;
             border-collapse: separate;
             border-spacing: 0 5px;
             margin-bottom: 18px;
@@ -1589,74 +1589,77 @@
             <div class="msg msg-standard">ข้อความธรรมดา</div>
 
             <!-- ฟอร์มในตาราง -->
-            <table class="form-table">
-                <tr>
-                    <td><label for="text1">Text (input[type=text])</label></td>
-                    <td><input type="text" id="text1" name="text1" placeholder="กรอกข้อความ" /></td>
-                </tr>
-                <tr>
-                    <td><label for="password1">Password</label></td>
-                    <td><input type="password" id="password1" name="password1" /></td>
-                </tr>
-                <tr>
-                    <td><label for="email1">Email</label></td>
-                    <td><input type="email" id="email1" name="email1" placeholder="your@email.com" /></td>
-                </tr>
-                <tr>
-                    <td><label for="number1">Number</label></td>
-                    <td><input type="number" id="number1" name="number1" /></td>
-                </tr>
-                <tr>
-                    <td><label for="date1">Date</label></td>
-                    <td><input type="date" id="date1" name="date1" /></td>
-                </tr>
-                <tr>
-                    <td><label for="time1">Time</label></td>
-                    <td><input type="time" id="time1" name="time1" /></td>
-                </tr>
-                <tr>
-                    <td><label for="file1">File</label></td>
-                    <td><input type="file" id="file1" name="file1" /></td>
-                </tr>
-                <tr>
-                    <td><label for="select1">Select</label></td>
-                    <td>
-                        <select id="select1" name="select1">
-                            <option value="">-- เลือก --</option>
-                            <option value="one">ตัวเลือก 1</option>
-                            <option value="two">ตัวเลือก 2</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Radio</label></td>
-                    <td>
-                        <input type="radio" id="radio1" name="radio-group" value="1" /><label for="radio1">Radio
-                            1</label>
-                        <input type="radio" id="radio2" name="radio-group" value="2" /><label for="radio2">Radio
-                            2</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Checkbox</label></td>
-                    <td>
-                        <input type="checkbox" id="chk1" name="chk-group" value="a" /><label for="chk1">ตัวเลือก
-                            A</label>
-                        <input type="checkbox" id="chk2" name="chk-group" value="b" /><label for="chk2">ตัวเลือก
-                            B</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="textarea1">Textarea</label></td>
-                    <td><textarea id="textarea1" name="textarea1" rows="3" placeholder="พิมพ์ข้อความ"></textarea></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center;">
-                        <button class="btn-form" type="submit">Submit</button>
-                        <button class="btn-form btn-cancel" type="reset">Reset</button>
-                    </td>
-                </tr>
-            </table>
+            <form class="form-table">
+                <table>
+                    <tr>
+                        <td><label for="text1">Text (input[type=text])</label></td>
+                        <td><input type="text" id="text1" name="text1" placeholder="กรอกข้อความ" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password1">Password</label></td>
+                        <td><input type="password" id="password1" name="password1" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email1">Email</label></td>
+                        <td><input type="email" id="email1" name="email1" placeholder="your@email.com" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="number1">Number</label></td>
+                        <td><input type="number" id="number1" name="number1" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="date1">Date</label></td>
+                        <td><input type="date" id="date1" name="date1" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="time1">Time</label></td>
+                        <td><input type="time" id="time1" name="time1" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="file1">File</label></td>
+                        <td><input type="file" id="file1" name="file1" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="select1">Select</label></td>
+                        <td>
+                            <select id="select1" name="select1">
+                                <option value="">-- เลือก --</option>
+                                <option value="one">ตัวเลือก 1</option>
+                                <option value="two">ตัวเลือก 2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Radio</label></td>
+                        <td>
+                            <input type="radio" id="radio1" name="radio-group" value="1" /><label for="radio1">Radio
+                                1</label>
+                            <input type="radio" id="radio2" name="radio-group" value="2" /><label for="radio2">Radio
+                                2</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Checkbox</label></td>
+                        <td>
+                            <input type="checkbox" id="chk1" name="chk-group" value="a" /><label for="chk1">ตัวเลือก
+                                A</label>
+                            <input type="checkbox" id="chk2" name="chk-group" value="b" /><label for="chk2">ตัวเลือก
+                                B</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="textarea1">Textarea</label></td>
+                        <td><textarea id="textarea1" name="textarea1" rows="3" placeholder="พิมพ์ข้อความ"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <button class="btn-form" type="submit">Submit</button>
+                            <button class="btn-form btn-cancel" type="reset">Reset</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
 
             <!-- ฟอร์มแยกแนวนอน นอก table -->
             <form class="standard-form">
