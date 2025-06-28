@@ -1220,6 +1220,11 @@
         /* Responsive สำหรับฟอร์ม */
         @media (max-width: 700px) {
 
+            /* สามารถซ่อนได้ กรณีดูบน mobile */
+            .hide-mobile {
+                display: none;
+            }
+
             .form-table,
             .form-table td {
                 font-size: 0.99rem;
@@ -2228,7 +2233,7 @@
                             <th>เลขประจำตัว</th>
                             <th>ชื่อ - นามสกุล</th>
                             <th>สถานภาพ</th>
-                            <th>คะแนนความประพฤติ</th>
+                            <th class="hide-mobile">คะแนนความประพฤติ</th>
                             <th>ประวัติ</th>
                             <th>เข้าแถว</th>
                             <th>เข้าห้องเรียน</th>
@@ -2242,7 +2247,7 @@
                             <td>06563</td>
                             <td class="name-col">นายณเสก มีสันเทียะ</td>
                             <td>ปกติ</td>
-                            <td class="score">100</td>
+                            <td class="score hide-mobile">100</td>
                             <td><span class="label-box blue">HIS</span></td>
                             <td><span class="label-box">800</span></td>
                             <td><span class="label-box green">Room</span></td>
@@ -2254,7 +2259,7 @@
                             <td>06564</td>
                             <td class="name-col">นายเทพประทาน ทาจันอัด</td>
                             <td>ปกติ</td>
-                            <td class="score score-low">96</td>
+                            <td class="score score-low hide-mobile">96</td>
                             <td><span class="label-box blue">HIS</span></td>
                             <td><span class="label-box">800</span></td>
                             <td><span class="label-box green">Room</span></td>
@@ -2266,7 +2271,7 @@
                             <td>06564</td>
                             <td class="name-col">นาวสาวกะเพราอ่องอ๋อง ท้าวกอกพุทธิมา ณ ขอนแก่น</td>
                             <td>ปกติ</td>
-                            <td class="score score-low">96</td>
+                            <td class="score score-low hide-mobile">96</td>
                             <td><span class="label-box blue">HIS</span></td>
                             <td><span class="label-box">800</span></td>
                             <td><span class="label-box green">Room</span></td>
