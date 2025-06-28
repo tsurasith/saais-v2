@@ -1771,7 +1771,7 @@
         <!-- section ทำเนียบรูปภาพ-->
         <section class="content-box">
             <div class="report-header">
-                <img class="logo" src="https://nnschool.app/images/school_logo.gif" alt="โลโก้หน่วยงาน" />
+                <img class="logo" src="images/school_logo.gif" alt="โลโก้หน่วยงาน" />
                 <div class="report-desc">รายชื่อนักเรียนห้อง 2/2 ภาคเรียนที่ 1 ปีการศึกษา 2568</div>
             </div>
             <div class="student-photo-grid">
@@ -2108,7 +2108,7 @@
 
             <!-- ส่วนหัวรายงาน -->
             <div class="report-header">
-                <img class="logo" src="https://nnschool.app/images/school_logo.gif" alt="โลโก้หน่วยงาน" />
+                <img class="logo" src="images/school_logo.gif" alt="โลโก้หน่วยงาน" />
                 <div class="report-title">ผลการลงทะเบียนเรียน</div>
                 <div class="report-desc">
                     เลขประจำตัว <b>06924</b> เด็กชายจิรวัฒน์ สินจารี<br>
@@ -2258,7 +2258,7 @@
         <section class="content-box">
             <h3>รายชื่อนักเรียน</h3>
             <div class="report-header">
-                <img class="logo" src="https://nnschool.app/images/school_logo.gif" alt="โลโก้หน่วยงาน" />
+                <img class="logo" src="images/school_logo.gif" alt="โลโก้หน่วยงาน" />
                 <div class="report-title">รายชื่อนักเรียนห้อง 4/1</div>
                 <div class="report-desc">ภาคเรียนที่ 1 ปีการศึกษา 2568</div>
             </div>
@@ -2327,7 +2327,7 @@
         <section class="content-box">
             <h3>รายชื่อนักเรียน (fullwidth)</h3>
             <div class="report-header">
-                <img class="logo" src="https://nnschool.app/images/school_logo.gif" alt="โลโก้หน่วยงาน" />
+                <img class="logo" src="images/school_logo.gif" alt="โลโก้หน่วยงาน" />
                 <div class="report-title">รายชื่อนักเรียนห้อง 4/1</div>
                 <div class="report-desc">ภาคเรียนที่ 1 ปีการศึกษา 2568</div>
             </div>
@@ -2504,24 +2504,33 @@
 
     <!-- jsPDF + html2canvas -->
     <script>
-        async function exportPDFWithCanvas() {
+        function exportPDFWithCanvas() {
             const element = document.getElementById('grade-report');
-            const canvas = await html2canvas(element, { scale: 2 });
-            const imgData = canvas.toDataURL('image/png');
+            const images = element.querySelectorAll("img");
 
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
+            // รอให้รูปทั้งหมดโหลดเสร็จก่อน
+            const promises = Array.from(images).map(img => {
+                return new Promise(resolve => {
+                    if (img.complete) resolve();
+                    else img.onload = img.onerror = resolve;
+                });
             });
 
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            Promise.all(promises).then(() => {
+                html2canvas(element, { scale: 2, useCORS: true }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save('ผลการเรียน.pdf');
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    pdf.save('ผลการเรียน.pdf');
+                });
+            });
         }
+
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
