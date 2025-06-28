@@ -1307,6 +1307,38 @@
             }
 
         }
+
+        /* ปุ่ม print report */
+        .print-button-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 12px;
+        }
+
+        .btn-print {
+            font-family: 'Kanit', sans-serif;
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.2s;
+        }
+
+        .btn-print:hover {
+            background-color: #1edf98;
+        }
+
+        /* ซ่อนปุ่มเวลา print */
+        @media print {
+            .btn-print {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -1314,7 +1346,7 @@
     <header>
         <div class="system-title">
             <a href="index.html" style="color:inherit; text-decoration:none;">
-                <img alt="Logo" class="logo" src="https://nnschool.app/images/school_logo.gif" />
+                <img alt="Logo" class="logo" src="images/school_logo.gif" />
             </a>
             <a href="index.html" style="color:inherit; text-decoration:none;">
                 <span class="title-text">ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</span>
@@ -2071,7 +2103,7 @@
 
 
         <!-- SECTION: ตารางนักเรียน -->
-        <section class="content-box">
+        <section class="content-box" id="grade-report">
             <h3>ตารางข้อมูลนักเรียน</h3>
 
             <!-- ส่วนหัวรายงาน -->
@@ -2213,6 +2245,11 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="print-button-wrapper">
+                <button class="btn-print" onclick="printSection('grade-report')">🖨 พิมพ์ผลการเรียน</button>
+                <button class="btn-print" onclick="exportPDFWithCanvas()">📄 สร้าง PDF</button>
             </div>
 
         </section>
@@ -2437,7 +2474,59 @@
                     .forEach(m => m.classList.remove('show'));
             });
         });
+
+        function printSection(sectionId) {
+            const content = document.getElementById(sectionId).innerHTML;
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>พิมพ์รายงาน</title>
+                    <style>
+                        body { font-family: 'Kanit', sans-serif; padding: 20px; }
+                        table { border-collapse: collapse; width: 100%; }
+                        th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+                        h3 { color: #a31e25; border-bottom: 2px solid #a31e25; }
+                        .logo { width: 45px; height: 45px; margin-right: 10px; }
+                    </style>
+                </head>
+                <body>
+                    ${content}
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+        }
     </script>
+
+    <!-- jsPDF + html2canvas -->
+    <script>
+        async function exportPDFWithCanvas() {
+            const element = document.getElementById('grade-report');
+            const canvas = await html2canvas(element, { scale: 2 });
+            const imgData = canvas.toDataURL('image/png');
+
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
+
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save('ผลการเรียน.pdf');
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </body>
 
 </html>
