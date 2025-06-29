@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px 40px;
+            z-index: 100;
+        }
+
+        .system-name {
+            color: white;
+            font-size: 1.9rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            padding-top: 84px;
+        }
+
+        .login-section {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .login-title {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .forgot-password a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dashboard-section {
+            flex: 1;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        .dashboard-preview {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .dashboard-title {
+            color: #333;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .chart-area {
+            background: #fff5;
+            border-radius: 12px;
+            padding: 10px 0 5px 0;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(118, 75, 162, 0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .recent-activity {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-dot {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .activity-text {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            background: #ffeaea;
+            border: 1px solid #ffbdbd;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            text-align: center;
+            display: none;
+            /* เริ่มต้นซ่อน */
+        }
+
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                padding-top: 70px;
+            }
+
+            .dashboard-section {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding-top: 65px;
+            }
+
+            .dashboard-section {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding-top: 50px;
+            }
+
+            .system-name {
+                font-size: 1.1rem;
+            }
+
+            .dashboard-section {
+                display: none !important;
+            }
+
+            .login-section {
+                flex: none;
+                height: 100vh;
+                padding-top: 60;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .circle3 {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle circle1"></div>
+        <div class="floating-circle circle2"></div>
+        <div class="floating-circle circle3"></div>
+    </div>
+
+    <header class="header">
+        <div class="system-name">ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</div>
+    </header>
+
+    <div class="container">
+        <div class="login-section">
+            <form class="login-form" id="loginForm">
+                <h2 class="login-title">เข้าสู่ระบบ</h2>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <div class="form-group">
+                    <label class="form-label" for="username">ชื่อผู้ใช้</label>
+                    <input type="text" id="username" name="username" class="form-input" placeholder="กรอกชื่อผู้ใช้"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">รหัสผ่าน</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="กรอกรหัสผ่าน"
+                        required>
+                </div>
+                <button type="submit" class="login-btn">เข้าสู่ระบบ</button>
+                <div class="forgot-password">
+                    <a href="#" onclick="alert('ติดต่อผู้ดูแลระบบ')">ลืมรหัสผ่าน?</a>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="dashboard-section">
+            <div class="dashboard-preview">
+                <h3 class="dashboard-title">Dashboard Overview</h3>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">ผู้ใช้ทั้งหมด</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">ออนไลน์</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">โครงการ</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">94%</div>
+                        <div class="stat-label">ประสิทธิภาพ</div>
+                    </div>
+                </div>
+
+                <!-- กราฟแท่ง -->
+                <div class="chart-area" style="margin-top:20px;">
+                    <canvas id="barChart" width="100%" height="120"></canvas>
+                </div>
+                <!-- กราฟวงกลม -->
+                <div class="chart-area" style="margin-top:20px;">
+                    <canvas id="pieChart" width="100%" height="120"></canvas>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3 class="dashboard-title">กิจกรรมล่าสุด</h3>
+
+                <div class="activity-item">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text">ผู้ใช้ใหม่ลงทะเบียนเข้าระบบ</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text">อัปเดตข้อมูลโครงการสำเร็จ</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text">สร้างรายงานประจำเดือน</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text">ผู้ใช้เข้าสู่ระบบ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                alert('กำลังเข้าสู่ระบบ...\nชื่อผู้ใช้: ' + username);
+                // window.location.href = 'dashboard.html';
+            } else {
+                alert('กรุณากรอกชื่อผู้ใช้และรหัสผ่าน');
+            }
+        });
+
+        // เพิ่ม animation เมื่อ input ได้รับ focus
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function () {
+                this.style.transform = 'scale(1.02)';
+            });
+
+            input.addEventListener('blur', function () {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Bar Chart
+        if (window.Chart) {
+            const ctxBar = document.getElementById('barChart').getContext('2d');
+            const barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.'],
+                    datasets: [{
+                        label: 'จำนวนผู้ใช้ใหม่',
+                        data: [50, 75, 60, 90, 120],
+                        backgroundColor: [
+                            'rgba(102, 126, 234, 0.8)',
+                            'rgba(118, 75, 162, 0.8)',
+                            'rgba(240, 147, 251, 0.8)',
+                            'rgba(245, 87, 108, 0.8)',
+                            'rgba(255, 203, 112, 0.8)'
+                        ],
+                        borderRadius: 10,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'จำนวนผู้ใช้ใหม่แต่ละเดือน'
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Pie Chart
+            const ctxPie = document.getElementById('pieChart').getContext('2d');
+            const pieChart = new Chart(ctxPie, {
+                type: 'pie',
+                data: {
+                    labels: ['ใช้งาน', 'ไม่ใช้งาน', 'แอดมิน'],
+                    datasets: [{
+                        label: 'ประเภทผู้ใช้',
+                        data: [1200, 40, 7],
+                        backgroundColor: [
+                            'rgba(102, 126, 234, 0.8)',
+                            'rgba(245, 87, 108, 0.8)',
+                            'rgba(255, 203, 112, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: true,
+                            text: 'สัดส่วนประเภทผู้ใช้'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            // สมมุติว่าผู้ใช้ที่ถูกต้องคือ user: admin, pass: 1234
+            if (!username || !password) {
+                errorMessage.textContent = 'กรุณากรอกชื่อผู้ใช้และรหัสผ่าน';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (username !== 'admin' || password !== '1234') {
+                errorMessage.textContent = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // ถ้าถูกต้อง
+            errorMessage.style.display = 'none';
+            alert('เข้าสู่ระบบสำเร็จ');
+            // window.location.href = 'dashboard.html';
+        });
+
+    </script>
+</body>
+
+</html>
