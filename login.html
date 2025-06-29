@@ -227,6 +227,20 @@
             font-size: 14px;
         }
 
+        .error-message {
+            color: #d32f2f;
+            background: #ffeaea;
+            border: 1px solid #ffbdbd;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            text-align: center;
+            display: none;
+            /* เริ่มต้นซ่อน */
+        }
+
+
         @media (max-width: 1024px) {
             .container {
                 flex-direction: column;
@@ -335,24 +349,24 @@
             <form class="login-form" id="loginForm">
                 <h2 class="login-title">เข้าสู่ระบบ</h2>
 
+                <div id="errorMessage" class="error-message"></div>
+
                 <div class="form-group">
                     <label class="form-label" for="username">ชื่อผู้ใช้</label>
                     <input type="text" id="username" name="username" class="form-input" placeholder="กรอกชื่อผู้ใช้"
                         required>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label" for="password">รหัสผ่าน</label>
                     <input type="password" id="password" name="password" class="form-input" placeholder="กรอกรหัสผ่าน"
                         required>
                 </div>
-
                 <button type="submit" class="login-btn">เข้าสู่ระบบ</button>
-
                 <div class="forgot-password">
                     <a href="#" onclick="alert('ติดต่อผู้ดูแลระบบ')">ลืมรหัสผ่าน?</a>
                 </div>
             </form>
+
         </div>
 
         <div class="dashboard-section">
@@ -507,6 +521,35 @@
                 }
             });
         }
+    </script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            // สมมุติว่าผู้ใช้ที่ถูกต้องคือ user: admin, pass: 1234
+            if (!username || !password) {
+                errorMessage.textContent = 'กรุณากรอกชื่อผู้ใช้และรหัสผ่าน';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (username !== 'admin' || password !== '1234') {
+                errorMessage.textContent = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // ถ้าถูกต้อง
+            errorMessage.style.display = 'none';
+            alert('เข้าสู่ระบบสำเร็จ');
+            // window.location.href = 'dashboard.html';
+        });
+
     </script>
 </body>
 
