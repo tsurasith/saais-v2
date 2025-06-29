@@ -2496,7 +2496,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="student-card">
                         <div class="photo-frame">
                             <img src="https://nnschool.app/images/studphoto/id06904.jpg" alt="จักรินทร์ นิลสมัคร" />
@@ -2976,12 +2976,24 @@
                 if (i > 0) pdf.addPage();
                 pdf.addImage(pageData, 'PNG', margin.left, margin.top, usableWidth, pageHeightAdjusted);
             }
+            const fileName = generateFileName(sectionId);
+            pdf.save(fileName);
 
-            pdf.save('section-export.pdf');
         }
+
+        function generateFileName(sectionId) {
+            const now = new Date();
+            const yyyy = now.getFullYear();
+            const mm = String(now.getMonth() + 1).padStart(2, '0');
+            const dd = String(now.getDate()).padStart(2, '0');
+            const hh = String(now.getHours()).padStart(2, '0');
+            const min = String(now.getMinutes()).padStart(2, '0');
+            const ss = String(now.getSeconds()).padStart(2, '0');
+
+            return `${sectionId}_${yyyy}${mm}${dd}_${hh}${min}${ss}.pdf`;
+        }
+
     </script>
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
