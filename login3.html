@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบเข้าสู่ระบบ | Demo</title>
+    <title>ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,7 +18,7 @@
         body {
             font-family: 'Prompt', sans-serif;
             background-color: #f8f5f5;
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
         }
@@ -40,7 +40,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
+            padding: 10px 0;
         }
 
         .logo-container {
@@ -49,20 +49,19 @@
         }
 
         .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #a31e25;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #e2e2e255;
+            border: 1px solid #e2eaf1;
+            padding: 3px;
         }
 
         .site-title {
             margin-left: 12px;
-            font-size: 20px;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #a31e25;
         }
@@ -98,9 +97,9 @@
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 32px;
-            height: calc(100vh - 200px);
+            height: calc(80vh - 200px);
             /* Adjust based on header and footer height */
-            min-height: 600px;
+            min-height: 500px;
         }
 
         @media (max-width: 1023px) {
@@ -119,7 +118,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100%;
             position: relative;
         }
@@ -160,7 +159,7 @@
         }
 
         .login-title {
-            font-size: 28px;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #a31e25;
             margin-bottom: 8px;
@@ -322,7 +321,7 @@
             font-weight: 700;
             color: #a31e25;
             margin-bottom: 24px;
-            position: sticky;
+            /* position: sticky; */
             top: 0;
             background-color: white;
             padding-bottom: 12px;
@@ -488,15 +487,51 @@
 
         /* Footer Styles */
         footer {
-            background-color: #a31e25;
-            color: white;
-            padding: 16px 0;
+            color: #666;
             text-align: center;
-            margin-top: auto;
+            font-size: 0.97rem;
+            padding: 24px 0 16px 0;
+            border-top: 1px solid #e2eaf1;
+            margin-top: 0;
+            box-shadow: 0 -1px 8px #e2eaf10c;
+            letter-spacing: 0.01em;
         }
 
         .footer-content {
             line-height: 1.6;
+        }
+
+        .error-message {
+            color: #c00303;
+            background: #fff3f3;
+            border: 1px solid #f199a3;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            text-align: center;
+            display: none;
+            box-shadow: 0 1px 8px #f5bdbd2c;
+            font-weight: 500;
+        }
+
+        @media (max-width: 720px) {
+            nav {
+                display: none;
+            }
+
+            .site-title {
+                margin-left: 12px;
+                font-size: 1.0rem;
+            }
+
+            .login-content {
+                padding: 20px 24px;
+            }
+
+            .login-form-container {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -507,15 +542,13 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <div class="logo">
-                        <i class="fas fa-paper-plane"></i>
-                    </div>
-                    <h1 class="site-title">ระบบจัดการข้อมูล</h1>
+                    <img class="logo" src="images/school_logo.gif" alt="โลโก้โรงเรียน" />
+                    <h1 class="site-title">ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</h1>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">เกี่ยวกับเรา</a></li>
-                        <li><a href="#">ติดต่อ</a></li>
+                        <li><a href="#">เกี่ยวกับระบบ</a></li>
+                        <!--<li><a href="#">ติดต่อ</a></li>-->
                     </ul>
                 </nav>
             </div>
@@ -533,7 +566,7 @@
                     <div class="login-decoration-circle circle-2"></div>
                     <div class="login-content">
                         <h2 class="login-title">เข้าสู่ระบบ</h2>
-                        <p class="login-subtitle">เข้าสู่ระบบเพื่อจัดการข้อมูลของคุณ</p>
+                        <!--<p class="login-subtitle">เข้าสู่ระบบเพื่อจัดการข้อมูลของคุณ</p>-->
                         <div class="login-form-container">
                             <form id="loginForm">
                                 <div class="form-group">
@@ -546,6 +579,9 @@
                                     <input id="password" type="password" placeholder="กรอกรหัสผ่าน">
                                     <i class="fas fa-lock input-icon"></i>
                                 </div>
+
+                                <div id="errorMessage" class="error-message"></div>
+
                                 <div class="forgot-password-container">
                                     <a href="#" class="forgot-password">ลืมรหัสผ่าน?</a>
                                 </div>
@@ -557,8 +593,10 @@
 
                 <!-- Dashboard Preview -->
                 <div class="dashboard">
-                    <h2 class="dashboard-title">แดชบอร์ด</h2>
-                    <p class="dashboard-description">เข้าสู่ระบบเพื่อดูข้อมูลและจัดการระบบของคุณ</p>
+                    <!--<h2 class="dashboard-title">แดชบอร์ด</h2>-->
+                    <p class="dashboard-description">เข้าสู่ระบบสารสนเทศเพื่ออัปเดตและจัดการข้อมูล ช่วยติดตาม ดูแล
+                        และส่งเสริมนักเรียน พร้อมขับเคลื่อนโรงเรียนสู่ความเป็นองค์กรแห่งการใช้ข้อมูลในยุค AI
+                        (Data-driven Organization)</p>
 
                     <div class="dashboard-cards">
                         <div class="dashboard-card card-primary">
@@ -699,16 +737,32 @@
     <script>
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
 
-            // This is a demo login - in a real application, you would validate with a server
-            if (username && password) {
-                alert('เข้าสู่ระบบสำเร็จ! (นี่เป็นเพียงตัวอย่างการทำงาน)');
-            } else {
-                alert('กรุณากรอกชื่อผู้ใช้และรหัสผ่าน');
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            // สมมุติว่าผู้ใช้ที่ถูกต้องคือ user: admin, pass: 1234
+            if (!username || !password) {
+                errorMessage.textContent = 'กรุณากรอกชื่อผู้ใช้และรหัสผ่าน';
+                errorMessage.style.display = 'block';
+                return;
             }
+
+            if (username !== 'admin' || password !== '1234') {
+                errorMessage.textContent = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // ถ้าถูกต้อง
+            errorMessage.style.display = 'none';
+            alert('เข้าสู่ระบบสำเร็จ');
+            // window.location.href = 'dashboard.html';
         });
+
+    </script>
+    <script>
 
         // Initialize Chart.js charts when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', function () {
@@ -820,7 +874,6 @@
             });
         });
     </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'957c17169746b2df',t:'MTc1MTI3MDAwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
