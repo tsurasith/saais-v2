@@ -1,0 +1,186 @@
+/* Base ------------------------------------------------------------- */
+:root {
+    --bg: #f7f8fa;
+    --fg: #1d2433;
+    --muted: #6b7280;
+    --brand: #1e40af;
+    --card: #ffffff;
+    --border: #e5e7eb;
+    --radius: 14px;
+    --shadow: 0 8px 24px rgba(2, 6, 23, .08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0b1220;
+        --fg: #e5e7eb;
+        --muted: #9aa4b2;
+        --brand: #60a5fa;
+        --card: #0f172a;
+        --border: #1f2937;
+        --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    }
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: linear-gradient(180deg, var(--bg) 0%, #fff0 100%);
+    line-height: 1.6;
+}
+
+/* Layout ----------------------------------------------------------- */
+main {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin-inline: auto;
+}
+
+/* Header ----------------------------------------------------------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+}
+
+.title {
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.menu {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--fg);
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: .2s ease;
+}
+
+.menu a:hover {
+    transform: translateY(-1px);
+    border-color: var(--brand);
+    color: var(--brand)
+}
+
+/* Content ---------------------------------------------------------- */
+.content {
+    padding: 32px 0 24px;
+}
+
+.content-header {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--brand);
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+/* Template list ---------------------------------------------------- */
+.template ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: item;
+    display: grid;
+    gap: 12px;
+}
+
+.template li {
+    counter-increment: item;
+    background: linear-gradient(180deg, rgba(30, 64, 175, .06), transparent);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 14px 16px 14px 56px;
+    position: relative;
+}
+
+.template li::before {
+    content: counter(item);
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: var(--brand);
+    color: white;
+    font-weight: 700;
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, .25);
+}
+
+/* Footer ----------------------------------------------------------- */
+footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    padding: 18px 0;
+    font-size: 14px;
+}
+
+/* Utilities -------------------------------------------------------- */
+.muted {
+    color: var(--muted)
+}
+
+/* Print (ซ่อนเมนู/เงา) ------------------------------------------- */
+@media print {
+
+    header,
+    .menu {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none;
+        border-color: #000;
+    }
+
+    body {
+        background: #fff;
+    }
+}

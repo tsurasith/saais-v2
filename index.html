@@ -5,16 +5,42 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Template | ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</title>
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
     <header>
-        <div>เค้าโครงหน้าเว็บ</div>
+        <div class="container header-inner">
+            <div class="title">เค้าโครงหน้าเว็บ</div>
+            <nav class="menu">
+                <a href="#">หน้าหลัก</a>
+                <a href="#">คู่มือ</a>
+                <a href="#">ติดต่อ</a>
+            </nav>
+        </div>
     </header>
+
     <main>
+        <section class="content">
+            <div class="container">
+                <div class="content-header">ตารางแสดงหน้า Template</div>
+                <div class="card template">
+                    <ol>
+                        <li><a href="main.html">หน้าเมนูหลัก</a></li>
+                        <li><a href="login.html">หน้า Login</a></li>
+                        <li><a href="forgot-password.html">หน้า reset รหัสผ่าน</a></li>
+                    </ol>
+                </div>
+                <p class="muted" style="margin-top:14px">This page is for the index or site map</p>
+            </div>
+        </section>
+
         <footer>
-            © ระบบจัดการสารสนเทศ<br />
-            System developed by: Mr. Surasith Taokok, email: taokok@gmail.com, Tel: 087 370 8079
+            <div class="container">
+                © ระบบจัดการสารสนเทศ<br />
+                System developed by: Mr. Surasith Taokok, email: <a href="mailto:taokok@gmail.com">taokok@gmail.com</a>,
+                Tel: 087 370 8079
+            </div>
         </footer>
     </main>
 </body>
