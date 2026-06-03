@@ -501,6 +501,12 @@
             background: #f9fafd;
         }
 
+        .table-container .student-table tbody tr:hover,
+        .table-container .grade-table tbody tr:hover,
+        .student-table.fullwidth .student-table tbody tr:hover {
+            background: #fff3f3;
+        }
+
         .student-table td,
         .student-table th {
             text-align: center;
