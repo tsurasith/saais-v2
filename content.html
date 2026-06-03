@@ -400,6 +400,11 @@
                         </td>
                     </tr>
                     <tr>
+                        <td><label for="textbox-date">Textbox Date</label></td>
+                        <td><input type="text" id="textbox-date" name="date" onclick="showCalendar(this.id)" size="12"
+                                maxlength="10" value="2026-06-16"></td>
+                    </tr>
+                    <tr>
                         <td colspan="2" class="form-actions-cell">
                             <button class="btn-form" type="submit">Submit</button>
                             <button class="btn-form btn-cancel" type="reset">Reset</button>
@@ -1353,7 +1358,8 @@
             </div>
 
             <div class="print-button-wrapper">
-                <button class="btn-print" type="button" data-export-target="grade-report-printArea">📄 สร้าง PDF</button>
+                <button class="btn-print" type="button" data-export-target="grade-report-printArea">📄 สร้าง
+                    PDF</button>
             </div>
 
         </section>
@@ -1511,6 +1517,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="scripts/calendar.js"></script>
     <script src="scripts/content.js"></script>
 </body>
 
