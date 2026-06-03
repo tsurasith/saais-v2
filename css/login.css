@@ -19,61 +19,6 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px #e2e2e255;
-            border: 1px solid #e2eaf1;
-            padding: 3px;
-        }
-
-        .site-title {
-            margin-left: 12px;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #a31e25;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 24px;
-        }
-
-        nav ul li a {
-            color: #4b5563;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #a31e25;
-        }
-
         /* Main Content Styles */
         main {
             flex-grow: 1;
@@ -506,17 +451,8 @@
         }
 
         @media (max-width: 720px) {
-            nav {
-                display: none;
-            }
-
             footer {
                 font-size: 0.78rem;
-            }
-
-            .site-title {
-                margin-left: 12px;
-                font-size: 1.0rem;
             }
 
             .login-content {

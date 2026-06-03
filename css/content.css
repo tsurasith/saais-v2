@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -10,98 +8,6 @@
             font-family: sans-serif;
             background: #f5f5f5;
             color: #333;
-        }
-
-        header {
-            font-family: 'Kanit', sans-serif;
-            background: #fff;
-            color: #A31E25;
-            padding: 5px 30px;
-            display: flex;
-            justify-content: space-between;
-            box-shadow: 0 2px 8px #c2c2c2;
-            border-bottom: 1px solid #dee2e6;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .system-title {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .logo {
-            width: 45px;
-            height: 45px;
-            margin-right: 10px;
-        }
-
-        .title-text {
-            font-size: 1.7rem;
-            font-weight: bold;
-        }
-
-        .user-menu {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .profile-pic {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 8px;
-            border: 2px solid #fff;
-            background: #fff;
-        }
-
-        .username {
-            white-space: nowrap;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 4px);
-            right: 0;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            min-width: 160px;
-            z-index: 100;
-            padding: 4px 0;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-menu li {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            padding: 8px 12px;
-            transition: background 0.2s;
-        }
-
-        .dropdown-menu li:hover {
-            background: #f0f0f0;
-        }
-
-        .menu-icon {
-            width: 16px;
-            height: 16px;
-            object-fit: cover;
-            margin-right: 8px;
         }
 
         main {
@@ -715,33 +621,6 @@
 
             .module-item .label {
                 font-size: 0.9rem;
-            }
-
-            .title-text {
-                font-size: 1.0rem;
-            }
-
-            .username {
-                display: none;
-            }
-
-            .logo {
-                width: 36px;
-                height: 36px;
-                margin-right: 6px;
-            }
-
-            .profile-pic {
-                width: 36px;
-                height: 36px;
-            }
-
-            .dropdown-menu {
-                min-width: 140px;
-            }
-
-            .dropdown-toggle {
-                font-size: 0.85rem;
             }
 
             .module-header {
@@ -1365,12 +1244,6 @@
 
         /* ปรับปุ่มในฟอร์ม table ให้อยู่กลางบนจอเล็ก */
         @media (max-width: 600px) {
-            header {
-                padding-top: 5px;
-                padding-left: 10px;
-                padding-right: 2px;
-            }
-
             .msg {
                 width: 95%;
                 min-width: 0;
@@ -1439,11 +1312,6 @@
                 display: none !important;
             }
         }
-
-.brand-link {
-    color: inherit;
-    text-decoration: none;
-}
 
 .form-actions-cell {
     text-align: center;
