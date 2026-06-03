@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+.app-header {
+    font-family: 'Kanit', sans-serif;
+    background: #fff;
+    color: #A31E25;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px #c2c2c2;
+    border-bottom: 1px solid #dee2e6;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.app-header .system-title {
+    display: flex;
+    align-items: flex-start;
+}
+
+.app-header .brand-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-header .logo {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.app-header .title-text {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.app-header .user-menu {
+    position: relative;
+}
+
+.app-header .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.app-header .profile-pic {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    border: 2px solid #fff;
+    background: #fff;
+}
+
+.app-header .username {
+    white-space: nowrap;
+}
+
+.app-header .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #fff;
+    border: 1px solid #ead7d9;
+    border-radius: 8px;
+    box-shadow: 0 18px 38px rgba(67, 24, 27, 0.16);
+    min-width: 220px;
+    z-index: 100;
+    padding: 8px;
+    overflow: visible;
+}
+
+.app-header .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 18px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-left: 1px solid #ead7d9;
+    border-top: 1px solid #ead7d9;
+    transform: rotate(45deg);
+}
+
+.app-header .dropdown-menu.show {
+    display: block;
+}
+
+.app-header .dropdown-menu li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 7px;
+    transition: background 0.18s, color 0.18s;
+}
+
+.app-header .dropdown-menu li:hover {
+    background: #fff3f3;
+}
+
+.app-header .dropdown-menu li a {
+    flex: 1;
+    color: #334155;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 10px 10px 0;
+}
+
+.app-header .dropdown-menu li:hover a {
+    color: #a31e25;
+}
+
+.app-header .menu-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    padding: 7px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #edf0f3;
+    flex: 0 0 auto;
+}
+
+@media (max-width: 600px) {
+    .app-header {
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-right: 2px;
+    }
+
+    .app-header .title-text {
+        font-size: 1rem;
+    }
+
+    .app-header .username {
+        display: none;
+    }
+
+    .app-header .logo {
+        width: 36px;
+        height: 36px;
+        margin-right: 6px;
+    }
+
+    .app-header .profile-pic {
+        width: 36px;
+        height: 36px;
+    }
+
+    .app-header .dropdown-menu {
+        min-width: 140px;
+    }
+
+    .app-header .dropdown-toggle {
+        font-size: 0.85rem;
+    }
+}
