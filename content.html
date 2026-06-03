@@ -401,8 +401,13 @@
                     </tr>
                     <tr>
                         <td><label for="textbox-date">Textbox Date</label></td>
-                        <td><input type="text" id="textbox-date" name="date" onclick="showCalendar(this.id)" size="12"
-                                maxlength="10" value="2026-06-16"></td>
+                        <td>
+                            <div class="date-input-group">
+                                <input type="text" id="textbox-date" name="date" onclick="showCalendar(this.id)" size="12"
+                                    maxlength="10" value="2026-06-16" data-buddhist-label="textbox-date-buddhist">
+                                <span id="textbox-date-buddhist" class="buddhist-date-label"></span>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="form-actions-cell">

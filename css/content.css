@@ -1324,6 +1324,28 @@
     text-align: center;
 }
 
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.buddhist-date-label {
+    min-height: 20px;
+    color: #667085;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.buddhist-date-label.is-valid {
+    color: #128100;
+}
+
+.buddhist-date-label.is-invalid {
+    color: #c00303;
+}
+
 .calendar-popup {
     position: absolute;
     z-index: 2000;

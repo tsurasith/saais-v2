@@ -9,19 +9,33 @@ const monthNames = [
 ];
 
 const dayNames = ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'];
+const fullDayNames = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
 
 function parseInputDate(value) {
+    return getValidDate(value) || new Date();
+}
+
+function getValidDate(value) {
     const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || '');
     if (!match) {
-        return new Date();
+        return null;
     }
 
     const year = Number(match[1]);
-    const month = Number(match[2]) - 1;
+    const month = Number(match[2]);
     const day = Number(match[3]);
-    const date = new Date(year, month, day);
+    const date = new Date(year, month - 1, day);
 
-    return Number.isNaN(date.getTime()) ? new Date() : date;
+    if (
+        Number.isNaN(date.getTime()) ||
+        date.getFullYear() !== year ||
+        date.getMonth() + 1 !== month ||
+        date.getDate() !== day
+    ) {
+        return null;
+    }
+
+    return date;
 }
 
 function formatDate(date) {
@@ -30,6 +44,43 @@ function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
 
     return `${year}-${month}-${day}`;
+}
+
+function formatBuddhistDate(date) {
+    const year = date.getFullYear() + 543;
+    const month = monthNames[date.getMonth()];
+    const day = date.getDate();
+
+    return `${fullDayNames[date.getDay()]} ${day} ${month} ${year}`;
+}
+
+function updateBuddhistDateLabel(input) {
+    const labelId = input.dataset.buddhistLabel;
+    if (!labelId) {
+        return;
+    }
+
+    const label = document.getElementById(labelId);
+    if (!label) {
+        return;
+    }
+
+    label.classList.remove('is-valid', 'is-invalid');
+
+    if (!input.value.trim()) {
+        label.textContent = '';
+        return;
+    }
+
+    const validDate = getValidDate(input.value.trim());
+    if (!validDate) {
+        label.textContent = 'รูปแบบวันที่ไม่ถูกต้อง';
+        label.classList.add('is-invalid');
+        return;
+    }
+
+    label.textContent = formatBuddhistDate(validDate);
+    label.classList.add('is-valid');
 }
 
 function getCalendarElement() {
@@ -153,6 +204,7 @@ document.addEventListener('click', (event) => {
 
         if (dateButton && calendarState.activeInput) {
             calendarState.activeInput.value = dateButton.dataset.date;
+            updateBuddhistDateLabel(calendarState.activeInput);
             calendarState.activeInput.dispatchEvent(new Event('change', { bubbles: true }));
             closeCalendar();
         }
@@ -178,4 +230,12 @@ window.addEventListener('resize', () => {
     if (calendar && calendarState.activeInput) {
         positionCalendar(calendarState.activeInput, calendar);
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-buddhist-label]').forEach((input) => {
+        updateBuddhistDateLabel(input);
+        input.addEventListener('input', () => updateBuddhistDateLabel(input));
+        input.addEventListener('change', () => updateBuddhistDateLabel(input));
+    });
 });
