@@ -550,6 +550,144 @@
             color: #0fa956;
         }
 
+        .schedule-section {
+            overflow: hidden;
+        }
+
+        .schedule-report-header {
+            margin-bottom: 18px;
+        }
+
+        .schedule-table-container {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid #e6eaef;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+            box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+        }
+
+        .schedule-table {
+            width: 100%;
+            min-width: 1120px;
+            border-collapse: separate;
+            border-spacing: 0;
+            table-layout: fixed;
+            background: #fff;
+            color: #344054;
+            font-family: 'Kanit', sans-serif;
+            text-align: center;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            border-right: 1px solid #e6eaef;
+            border-bottom: 1px solid #e6eaef;
+            transition: background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+        }
+
+        .schedule-table th:last-child,
+        .schedule-table td:last-child {
+            border-right: none;
+        }
+
+        .schedule-table tbody tr:last-child th,
+        .schedule-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table thead th {
+            background: #f6f8fb;
+            color: #475467;
+            font-size: 1.08rem;
+            font-weight: 700;
+            padding: 12px 10px;
+        }
+
+        .schedule-table thead tr:last-child th {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .schedule-day-head {
+            width: 120px;
+            vertical-align: middle;
+        }
+
+        .schedule-group-head {
+            letter-spacing: 0.02em;
+        }
+
+        .schedule-lunch-head,
+        .schedule-lunch {
+            width: 115px;
+        }
+
+        .schedule-table tbody th,
+        .schedule-table tbody td {
+            min-height: 128px;
+            padding: 16px 12px;
+            vertical-align: top;
+        }
+
+        .schedule-day {
+            background: #f8fafc;
+            color: #475467;
+            font-size: 1.05rem;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+
+        .schedule-entry {
+            display: grid;
+            gap: 2px;
+            padding: 8px 6px;
+            border-radius: 10px;
+        }
+
+        .schedule-entry + .schedule-entry {
+            margin-top: 8px;
+            border-top: 1px dashed #d9e2ec;
+            padding-top: 12px;
+        }
+
+        .schedule-subject {
+            color: #344054;
+            font-size: 1.08rem;
+            font-weight: 800;
+            line-height: 1.18;
+        }
+
+        .schedule-teacher,
+        .schedule-room {
+            color: #475467;
+            font-size: 0.98rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .schedule-lunch,
+        .schedule-empty {
+            color: #667085;
+            font-size: 1.15rem;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+
+        .schedule-table tbody td[data-period]:hover {
+            background: #eef7ff;
+            box-shadow: inset 0 0 0 999px rgba(14, 116, 184, 0.05);
+        }
+
+        .schedule-table tbody td[data-period]:hover .schedule-entry {
+            background: rgba(255, 255, 255, 0.68);
+            box-shadow: 0 8px 18px rgba(14, 116, 184, 0.10);
+        }
+
+        .schedule-table tbody td[data-period]:hover .schedule-subject {
+            color: #075985;
+        }
+
         /* Responsive ตารางเลื่อนได้บนจอเล็ก */
         @media (max-width: 900px) {
 
@@ -562,6 +700,24 @@
 
             .table-container {
                 overflow-x: auto;
+            }
+
+            .schedule-table-container {
+                border-radius: 10px;
+            }
+
+            .schedule-table {
+                min-width: 980px;
+                font-size: 0.9rem;
+            }
+
+            .schedule-table tbody th,
+            .schedule-table tbody td {
+                padding: 12px 10px;
+            }
+
+            .schedule-day-head {
+                width: 96px;
             }
 
             .module-header-form {
