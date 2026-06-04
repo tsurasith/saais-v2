@@ -1,0 +1,319 @@
+.learn-page {
+    overflow: hidden;
+}
+
+.learn-report-header {
+    margin-bottom: 18px;
+}
+
+.learn-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 18px auto 24px;
+    max-width: 980px;
+}
+
+.learn-summary-card {
+    background: linear-gradient(135deg, #fff, #fff7f7);
+    border: 1px solid #f0d7da;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(163, 30, 37, 0.08);
+    padding: 14px 16px;
+}
+
+.learn-summary-card span {
+    color: #7a575b;
+    display: block;
+    font-size: 0.86rem;
+    margin-bottom: 5px;
+}
+
+.learn-summary-card strong {
+    color: #a31e25;
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.section-heading-row,
+.attendance-toolbar {
+    align-items: flex-start;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.section-heading-row h3,
+.attendance-toolbar h3,
+.teacher-sign-panel h3 {
+    color: #a31e25;
+    margin: 0 0 6px;
+}
+
+.learn-status-pill {
+    background: #a31e25;
+    border-radius: 999px;
+    color: #fff;
+    flex: 0 0 auto;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 7px 12px;
+}
+
+.learn-period-panel {
+    margin: 0 auto 20px;
+    max-width: 980px;
+}
+
+.learn-period-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    margin-top: 12px;
+}
+
+.learn-period-card {
+    background: #fff;
+    border: 1px solid #eadadd;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    min-height: 104px;
+    padding: 12px;
+    text-align: center;
+}
+
+.learn-period-card span,
+.learn-period-card small {
+    color: #667085;
+    display: block;
+    font-size: 0.82rem;
+}
+
+.learn-period-card strong {
+    color: #344054;
+    display: block;
+    font-size: 1.12rem;
+    margin: 8px 0 4px;
+}
+
+.learn-period-card.is-active {
+    background: linear-gradient(145deg, #a31e25, #c93b43);
+    border-color: #a31e25;
+    box-shadow: 0 14px 28px rgba(163, 30, 37, 0.2);
+}
+
+.learn-period-card.is-active span,
+.learn-period-card.is-active strong,
+.learn-period-card.is-active small {
+    color: #fff;
+}
+
+.learn-period-card.is-saved {
+    background: #f0fff6;
+    border-color: #9be5b7;
+}
+
+.learn-period-card.is-saved strong {
+    color: #137a3f;
+}
+
+.learn-period-card.is-disabled {
+    background: #f8f9fb;
+    color: #98a2b3;
+}
+
+.teacher-sign-panel {
+    align-items: center;
+    background: #fffafa;
+    border: 1px solid #f1dcdf;
+    border-radius: 16px;
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    margin: 0 auto 22px;
+    max-width: 980px;
+    padding: 16px;
+}
+
+.teacher-sign-panel p,
+.attendance-toolbar p {
+    color: #667085;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.teacher-sign-options,
+.attendance-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.teacher-sign-options label {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e7c7cb;
+    border-radius: 999px;
+    color: #344054;
+    display: inline-flex;
+    font-weight: 700;
+    gap: 8px;
+    padding: 8px 12px;
+}
+
+.teacher-sign-options input,
+.learn-attendance-table input[type="radio"] {
+    accent-color: #a31e25;
+    cursor: pointer;
+}
+
+.attendance-toolbar {
+    margin: 0 auto 12px;
+    max-width: 980px;
+}
+
+.attendance-legend {
+    justify-content: flex-end;
+    max-width: 460px;
+}
+
+.attendance-legend span {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #eadadd;
+    border-radius: 999px;
+    color: #475467;
+    display: inline-flex;
+    font-size: 0.84rem;
+    font-weight: 700;
+    gap: 6px;
+    padding: 6px 10px;
+}
+
+.legend-dot {
+    border-radius: 999px;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+}
+
+.legend-dot.present {
+    background: #fff;
+    border: 1px solid #d0d5dd;
+}
+
+.legend-dot.activity {
+    background: #dff8e7;
+}
+
+.legend-dot.late {
+    background: #fff3b8;
+}
+
+.legend-dot.leave {
+    background: #dbeeff;
+}
+
+.legend-dot.absent {
+    background: #ffc978;
+}
+
+.legend-dot.skip {
+    background: #ff9f9f;
+}
+
+.learn-attendance-table {
+    min-width: 900px;
+}
+
+.learn-attendance-table thead th {
+    background: #e8ecf1;
+    border-bottom-color: #b9c2cf;
+    color: #344054;
+}
+
+.learn-attendance-table tbody tr {
+    transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.learn-attendance-table tbody tr.is-present {
+    background: #fff;
+}
+
+.learn-attendance-table tbody tr.is-activity {
+    background: #edfff3;
+}
+
+.learn-attendance-table tbody tr.is-late {
+    background: #fff8d5;
+}
+
+.learn-attendance-table tbody tr.is-leave {
+    background: #edf7ff;
+}
+
+.learn-attendance-table tbody tr.is-absent {
+    background: #ffdfb2;
+}
+
+.learn-attendance-table tbody tr.is-skip {
+    background: #ffcaca;
+}
+
+.table-container .learn-attendance-table tbody tr.is-present:hover {
+    background: #fff5f5;
+}
+
+.table-container .learn-attendance-table tbody tr.is-activity:hover {
+    background: #dcfbe7;
+}
+
+.table-container .learn-attendance-table tbody tr.is-late:hover {
+    background: #fff0a8;
+}
+
+.table-container .learn-attendance-table tbody tr.is-leave:hover {
+    background: #dcefff;
+}
+
+.table-container .learn-attendance-table tbody tr.is-absent:hover {
+    background: #ffd094;
+}
+
+.table-container .learn-attendance-table tbody tr.is-skip:hover {
+    background: #ffadad;
+}
+
+.attendance-radio-cell {
+    width: 74px;
+}
+
+.attendance-radio-cell input {
+    height: 18px;
+    width: 18px;
+}
+
+.learn-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+
+    .section-heading-row,
+    .attendance-toolbar,
+    .teacher-sign-panel {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .attendance-legend {
+        justify-content: flex-start;
+        max-width: none;
+    }
+}
