@@ -527,6 +527,27 @@
             color: #f3ae1d;
         }
 
+        .student-table .text-green,
+        .text-green {
+            color: #1dab04;
+        }
+
+        .student-table .text-red,
+        .text-red {
+            color: #cb0f0f;
+        }
+
+        .student-table .text-blue,
+        .text-blue {
+            color: #0b5ed7;
+            font-weight: bold;
+        }
+
+        .student-table .text-orange,
+        .text-orange {
+            color: #f3ae1d;
+        }
+
         .student-table .label-box {
             border: 1px solid #55aa55;
             background: #eaffea;
@@ -1622,10 +1643,33 @@
 }
 
 .chart-panel {
+    width: 100%;
     max-width: 600px;
     margin: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.chart-wrapper {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 auto;
+}
+
+.chart-scroll {
+    min-width: 300px;
+    padding-bottom: 10px;
 }
 
 .chart-primary {
     margin-bottom: 32px;
+}
+
+@media (max-width: 600px) {
+    .chart-panel canvas {
+        min-width: 300px;
+    }
 }
