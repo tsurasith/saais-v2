@@ -272,6 +272,42 @@ main {
     white-space: nowrap;
 }
 
+.featured-figure {
+    border: 1px solid #ead7d9;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 14px 32px rgba(163, 30, 37, 0.08);
+    overflow: hidden;
+}
+
+.featured-image-frame {
+    display: grid;
+    place-items: center;
+    min-height: 360px;
+    padding: 42px;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(163, 30, 37, 0.14), transparent 36%),
+        linear-gradient(135deg, #fff7f8, #f8fafc);
+}
+
+.featured-image-frame img {
+    width: min(340px, 72vw);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 24px rgba(67, 24, 27, 0.14));
+}
+
+.featured-figure figcaption {
+    padding: 22px 26px 26px;
+    border-top: 1px solid #f0e2e4;
+}
+
+.featured-figure p {
+    color: #4b5563;
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
 .story-media-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
@@ -439,6 +475,15 @@ footer {
     .metric-card {
         min-width: 130px;
         padding: 10px 12px;
+    }
+
+    .featured-image-frame {
+        min-height: 260px;
+        padding: 30px;
+    }
+
+    .featured-figure figcaption {
+        padding: 18px;
     }
 
     .prose-card,
