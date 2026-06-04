@@ -234,6 +234,17 @@
     color: #344054;
 }
 
+.learn-attendance-table .status-heading {
+    min-width: 64px;
+    width: 64px;
+}
+
+.status-th-label {
+    display: inline-block;
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
 .learn-attendance-table tbody tr {
     transition: background-color 0.18s ease, box-shadow 0.18s ease;
 }
@@ -287,7 +298,7 @@
 }
 
 .attendance-radio-cell {
-    width: 74px;
+    width: 64px;
 }
 
 .attendance-radio-cell input {
@@ -304,6 +315,49 @@
 }
 
 @media (max-width: 900px) {
+    .learn-attendance-table {
+        font-size: 0.8rem;
+        min-width: 660px;
+    }
+
+    .learn-attendance-table thead th {
+        padding: 7px 5px;
+    }
+
+    .learn-attendance-table tbody td {
+        padding: 7px 5px;
+    }
+
+    .learn-attendance-table td.name-col,
+    .learn-attendance-table th.name-col {
+        max-width: 190px;
+        min-width: 150px;
+        padding-left: 10px;
+    }
+
+    .learn-attendance-table .status-heading {
+        height: 76px;
+        min-width: 42px;
+        padding: 6px 2px;
+        vertical-align: middle;
+        width: 42px;
+    }
+
+    .status-th-label {
+        transform: rotate(-90deg);
+        transform-origin: center;
+    }
+
+    .attendance-radio-cell {
+        padding-left: 3px;
+        padding-right: 3px;
+        width: 42px;
+    }
+
+    .attendance-radio-cell input {
+        height: 16px;
+        width: 16px;
+    }
 
     .section-heading-row,
     .attendance-toolbar,
@@ -315,5 +369,144 @@
     .attendance-legend {
         justify-content: flex-start;
         max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .learn-report-header .report-title {
+        font-size: 1.05rem;
+    }
+
+    .learn-report-header .report-desc,
+    .attendance-toolbar p,
+    .teacher-sign-panel p {
+        font-size: 0.78rem;
+    }
+
+    .learn-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .learn-summary-card {
+        padding: 10px 12px;
+    }
+
+    .learn-summary-card span {
+        font-size: 0.76rem;
+    }
+
+    .learn-summary-card strong {
+        font-size: 0.92rem;
+    }
+
+    .learn-period-grid {
+        gap: 6px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .learn-period-card {
+        border-radius: 10px;
+        min-height: 66px;
+        padding: 7px 5px;
+    }
+
+    .learn-period-card strong {
+        font-size: 0.82rem;
+        margin: 3px 0 1px;
+    }
+
+    .learn-period-card span,
+    .learn-period-card small,
+    .attendance-legend span,
+    .teacher-sign-options label {
+        font-size: 0.68rem;
+    }
+
+    .section-heading-row h3,
+    .attendance-toolbar h3,
+    .teacher-sign-panel h3 {
+        font-size: 0.96rem;
+        margin-bottom: 4px;
+    }
+
+    .teacher-sign-panel {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .teacher-sign-options {
+        gap: 6px;
+    }
+
+    .teacher-sign-options label {
+        padding: 7px 9px;
+    }
+
+    .attendance-toolbar {
+        gap: 10px;
+    }
+
+    .attendance-legend {
+        gap: 6px;
+    }
+
+    .attendance-legend span {
+        padding: 5px 8px;
+    }
+
+    .learn-attendance-table {
+        font-size: 0.72rem;
+        min-width: 560px;
+    }
+
+    .learn-attendance-table thead th {
+        padding: 6px 3px;
+    }
+
+    .learn-attendance-table tbody td {
+        padding: 6px 3px;
+    }
+
+    .learn-attendance-table td.name-col,
+    .learn-attendance-table th.name-col {
+        max-width: 145px;
+        min-width: 120px;
+        padding-left: 8px;
+    }
+
+    .learn-attendance-table .status-heading,
+    .attendance-radio-cell {
+        min-width: 34px;
+        width: 34px;
+    }
+
+    .learn-attendance-table .status-heading {
+        height: 70px;
+    }
+
+    .attendance-radio-cell input {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .learn-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .learn-period-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .learn-attendance-table {
+        min-width: 520px;
+    }
+
+    .learn-attendance-table td.name-col,
+    .learn-attendance-table th.name-col {
+        max-width: 128px;
+        min-width: 108px;
     }
 }
