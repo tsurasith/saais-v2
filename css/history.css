@@ -833,7 +833,7 @@
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) and (orientation: portrait) {
     .history-module-header .module-icon {
         width: 48px;
         height: 48px;
@@ -875,16 +875,29 @@
 
     .student-identity {
         display: grid;
-        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .student-photo {
-        flex-basis: 82px;
+        width: 100%;
+        max-width: none;
+        flex-basis: auto;
     }
 
     .student-photo img {
-        width: 82px;
-        border-width: 3px;
+        width: 100%;
+        height: clamp(240px, 74vw, 360px);
+        aspect-ratio: auto;
+        border-width: 4px;
+        object-position: center top;
+    }
+
+    .student-status {
+        right: 10px;
+        bottom: 10px;
+        font-size: 0.68rem;
+        padding: 5px 9px;
     }
 
     .student-intro h1 {
