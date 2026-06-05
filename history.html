@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัตินักเรียน - ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</title>
+    <link rel="stylesheet" href="css/header-after-login.css" />
+    <link rel="stylesheet" href="css/content.css" />
+    <link rel="stylesheet" href="css/history.css?v=4" />
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="system-title">
+            <a href="main.html" class="brand-link">
+                <img alt="ตราโรงเรียนเนินสง่าวิทยา" class="logo" src="images/school_logo.gif" />
+            </a>
+            <a href="main.html" class="brand-link">
+                <span class="title-text">ระบบสารสนเทศโรงเรียนเนินสง่าวิทยา</span>
+            </a>
+        </div>
+
+        <div class="user-menu">
+            <div class="dropdown-toggle">
+                <img alt="Profile" class="profile-pic" src="https://nnschool.app/images/teacphoto/TC999.jpg" />
+                <span class="username">นายสุรสิทธิ์ ท้าวกอก</span>
+            </div>
+            <ul class="dropdown-menu">
+                <li>
+                    <img alt="" class="menu-icon" src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" />
+                    <a href="main.html">หน้าแรก</a>
+                </li>
+                <li>
+                    <img alt="" class="menu-icon" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />
+                    <a href="profile.html">ข้อมูลโปรไฟล์</a>
+                </li>
+                <li>
+                    <img alt="" class="menu-icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828486.png" />
+                    <a href="change-password.html">เปลี่ยนรหัสผ่าน</a>
+                </li>
+                <li>
+                    <img alt="" class="menu-icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" />
+                    <a href="login.html">ออกจากระบบ</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="module-header history-module-header">
+            <img alt="ประวัตินักเรียน" class="module-icon" src="images/module-history.png" />
+            <div class="module-title">
+                <h2>ประวัตินักเรียน</h2>
+                <div class="subtitle">ค้นหาและตรวจสอบข้อมูลนักเรียนแบบรายบุคคล</div>
+            </div>
+            <form class="history-search" action="#" method="get">
+                <div class="search-field">
+                    <label for="academic-year">ปีการศึกษา</label>
+                    <select id="academic-year" name="academic-year">
+                        <option>2567</option>
+                        <option>2566</option>
+                        <option>2565</option>
+                    </select>
+                </div>
+                <div class="search-field student-id-field">
+                    <label for="student-id">เลขประจำตัวนักเรียน</label>
+                    <input id="student-id" name="student-id" type="search" inputmode="numeric" maxlength="5"
+                        value="06189" aria-describedby="student-id-help" />
+                    <small id="student-id-help">ระบุเลขประจำตัว 5 หลัก</small>
+                </div>
+                <button class="btn-form" type="submit">ค้นหาข้อมูล</button>
+            </form>
+        </section>
+
+        <div class="print-button-wrapper history-print-wrapper">
+            <button class="btn-print history-print-button" type="button" data-history-export="history-profile-pdf">
+                พิมพ์โปรไฟล์ PDF
+            </button>
+        </div>
+
+        <div id="history-profile-pdf" class="history-pdf-profile">
+        <section class="student-hero" aria-labelledby="student-name">
+            <div class="student-identity">
+                <div class="student-photo">
+                    <img src="images/no-profile-image.png" alt="รูปนักเรียน นางสาวสุนันทา ทองยศ">
+                    <span class="student-status">สำเร็จการศึกษา</span>
+                </div>
+                <div class="student-intro">
+                    <div class="student-id-highlight">
+                        <span>เลขประจำตัวนักเรียน</span>
+                        <strong>06189</strong>
+                    </div>
+                    <div class="student-id-print" aria-hidden="true">
+                        <span>เลขประจำตัวนักเรียน</span>
+                        <strong>06189</strong>
+                    </div>
+                    <h1 id="student-name">นางสาวสุนันทา ทองยศ</h1>
+                    <div class="student-highlight-list" aria-label="ข้อมูลสำคัญของนักเรียน">
+                        <div class="student-highlight nickname-highlight">
+                            <span>ชื่อเล่น</span>
+                            <strong>นุ่น</strong>
+                        </div>
+                        <div class="student-highlight advisor-highlight">
+                            <span>ครูที่ปรึกษา</span>
+                            <strong>ครูสิริจันทร์ เทพชมภู</strong>
+                        </div>
+                    </div>
+                    <div class="student-contact">
+                        <a href="tel:0615958817">061-5958817</a>
+                        <a href="mailto:su.suuuu06@gmail.com">su.suuuu06@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-stats" aria-label="ข้อมูลสรุปนักเรียน">
+                <div class="stat-card featured">
+                    <span>คะแนนความประพฤติ</span>
+                    <strong>340</strong>
+                    <small>คะแนนสะสม</small>
+                </div>
+                <div class="stat-card">
+                    <span>ระดับชั้น</span>
+                    <strong>ม. 6/1</strong>
+                    <small>ปีการศึกษา 2567</small>
+                </div>
+                <div class="stat-card">
+                    <span>สถานะสุขภาพ</span>
+                    <strong>ปกติ</strong>
+                    <small>BMI 19.49 สมส่วน</small>
+                </div>
+            </div>
+        </section>
+
+        <nav class="history-jump-nav" aria-label="ทางลัดข้อมูลประวัตินักเรียน">
+            <a href="#personal">ข้อมูลส่วนตัว</a>
+            <a href="#education">การศึกษา</a>
+            <a href="#scholarship">ทุนการศึกษา</a>
+            <a href="#family">ครอบครัว</a>
+            <a href="#attendance">การเข้าแถว</a>
+            <a href="#behavior">พฤติกรรม</a>
+        </nav>
+
+        <div class="history-content-grid">
+            <section class="content-box history-section" id="personal">
+                <div class="history-section-heading">
+                    <div>
+                        <span class="history-eyebrow">Personal Information</span>
+                        <h3>ข้อมูลส่วนบุคคล</h3>
+                    </div>
+                    <span class="section-badge">ข้อมูลปี 2567</span>
+                </div>
+                <dl class="history-detail-list">
+                    <div><dt>เลขประจำตัวนักเรียน</dt><dd>06189</dd></div>
+                    <div><dt>เลขบัตรประชาชน</dt><dd>1-3699-00763-28-4</dd></div>
+                    <div><dt>ชื่อ - สกุลเดิม</dt><dd>สุนันทา ทองยศ</dd></div>
+                    <div><dt>เพศ</dt><dd>หญิง</dd></div>
+                    <div><dt>วันเกิด</dt><dd>18 สิงหาคม 2549</dd></div>
+                    <div><dt>อายุ</dt><dd>19 ปี 9 เดือน 17 วัน</dd></div>
+                    <div><dt>ศาสนา</dt><dd>พุทธ</dd></div>
+                    <div><dt>เชื้อชาติ / สัญชาติ</dt><dd>ไทย / ไทย</dd></div>
+                    <div><dt>หมู่โลหิต</dt><dd>เอ</dd></div>
+                    <div><dt>คณะสี</dt><dd>ไม่ระบุ</dd></div>
+                </dl>
+            </section>
+
+            <section class="content-box history-section" id="health">
+                <div class="history-section-heading">
+                    <div>
+                        <span class="history-eyebrow">Health &amp; Living</span>
+                        <h3>สุขภาพและการพักอาศัย</h3>
+                    </div>
+                </div>
+                <dl class="history-detail-list">
+                    <div><dt>น้ำหนัก / ส่วนสูง</dt><dd>55 กก. / 168 ซม.</dd></div>
+                    <div><dt>ดัชนีมวลกาย</dt><dd><span class="value-positive">19.49 · ปกติ/สมส่วน</span></dd></div>
+                    <div><dt>สุขภาพฟัน</dt><dd>ปกติ</dd></div>
+                    <div><dt>ความพิการ</dt><dd>ปกติ</dd></div>
+                    <div><dt>การพักอาศัย</dt><dd>พักอยู่กับผู้ปกครอง</dd></div>
+                    <div><dt>ความขาดแคลน</dt><dd>ไม่ขาดแคลน</dd></div>
+                    <div><dt>การเดินทาง</dt><dd>ผู้ปกครองมาส่ง</dd></div>
+                    <div><dt>ระยะเวลาเดินทาง</dt><dd>ประมาณ 3 นาที</dd></div>
+                </dl>
+            </section>
+        </div>
+
+        <section class="content-box history-section address-section">
+            <div class="history-section-heading">
+                <div>
+                    <span class="history-eyebrow">Contact &amp; Address</span>
+                    <h3>ข้อมูลติดต่อและที่อยู่</h3>
+                </div>
+            </div>
+            <div class="address-grid">
+                <div class="address-card">
+                    <span>ที่อยู่ปัจจุบัน</span>
+                    <strong>บ้านเลขที่ 21 หมู่ 14 บ้านเนินสง่า</strong>
+                    <p>ตำบลหนองฉิม อำเภอเนินสง่า จังหวัดชัยภูมิ 36130</p>
+                </div>
+                <dl class="history-detail-list compact">
+                    <div><dt>เบอร์โทรศัพท์</dt><dd><a href="tel:0615958817">061-5958817</a></dd></div>
+                    <div><dt>เบอร์มือถือ</dt><dd><a href="tel:0615958817">061-5958817</a></dd></div>
+                    <div><dt>อีเมล</dt><dd><a href="mailto:su.suuuu06@gmail.com">su.suuuu06@gmail.com</a></dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="content-box history-section" id="education">
+            <div class="history-section-heading">
+                <div>
+                    <span class="history-eyebrow">Education</span>
+                    <h3>ข้อมูลด้านการศึกษา</h3>
+                </div>
+            </div>
+            <dl class="history-detail-list education-list">
+                <div><dt>วันที่เข้าศึกษา</dt><dd>17 พฤษภาคม 2565</dd></div>
+                <div><dt>โรงเรียนเดิม</dt><dd>โรงเรียนเนินสง่าวิทยา จังหวัดชัยภูมิ</dd></div>
+                <div><dt>ระดับการศึกษาก่อนเข้า</dt><dd>มัธยมศึกษาตอนต้น</dd></div>
+                <div><dt>วิธีการเข้าศึกษา</dt><dd>นักเรียนต้นปีการศึกษา</dd></div>
+                <div><dt>วิชาที่ถนัด / ชอบ</dt><dd>ภาษาไทย</dd></div>
+                <div><dt>วิชาที่ไม่ถนัด / ไม่ชอบ</dt><dd>คณิตศาสตร์</dd></div>
+                <div><dt>ครูที่ไว้วางใจ</dt><dd>ครูพิชชาพร แนวสุภาพ</dd></div>
+                <div><dt>จำนวนทุนที่เคยได้รับ</dt><dd><span class="value-positive">5 รายการ</span></dd></div>
+            </dl>
+        </section>
+
+        <section class="content-box history-section history-table-section" id="scholarship">
+            <div class="history-section-heading">
+                <div>
+                    <span class="history-eyebrow">Scholarship History</span>
+                    <h3>ทุนการศึกษาที่เคยได้รับ</h3>
+                </div>
+                <span class="section-badge scholarship-total">รวม 21,500 บาท</span>
+            </div>
+            <div class="table-container">
+                <table class="student-table history-table scholarship-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ลำดับที่</th>
+                            <th scope="col">วันที่</th>
+                            <th scope="col">ชื่อทุน</th>
+                            <th scope="col">จำนวนเงิน</th>
+                            <th scope="col">ปีการศึกษา</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>15 มิถุนายน 2563</td><td class="scholarship-name">ทุนเสมอภาคทางการศึกษา</td><td class="money-value">3,000 บาท</td><td>2563</td></tr>
+                        <tr><td>2</td><td>20 สิงหาคม 2564</td><td class="scholarship-name">ทุนเด็กดีศรีเนินสง่า</td><td class="money-value">2,500 บาท</td><td>2564</td></tr>
+                        <tr><td>3</td><td>10 กรกฎาคม 2565</td><td class="scholarship-name">ทุนมูลนิธิเพื่อการศึกษา</td><td class="money-value">5,000 บาท</td><td>2565</td></tr>
+                        <tr><td>4</td><td>18 สิงหาคม 2566</td><td class="scholarship-name">ทุนเรียนดีและประพฤติดี</td><td class="money-value">5,000 บาท</td><td>2566</td></tr>
+                        <tr><td>5</td><td>12 กรกฎาคม 2567</td><td class="scholarship-name">ทุนสนับสนุนการศึกษาต่อ</td><td class="money-value">6,000 บาท</td><td>2567</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-box history-section" id="family">
+            <div class="history-section-heading">
+                <div>
+                    <span class="history-eyebrow">Family &amp; Guardian</span>
+                    <h3>ข้อมูลครอบครัวและผู้ปกครอง</h3>
+                </div>
+                <span class="section-badge">รายได้รวม 80,000 บาท/ปี</span>
+            </div>
+            <div class="family-grid">
+                <article class="family-card">
+                    <img src="images/no-profile-image.png" alt="รูปบิดา">
+                    <div>
+                        <span>บิดา</span>
+                        <h4>นายวิจิตร ทองยศ</h4>
+                        <p>เกษตรกร · ยังมีชีวิตอยู่</p>
+                        <a href="tel:0806362650">080-6362650</a>
+                        <small>รายได้ 40,000 บาท/ปี</small>
+                    </div>
+                </article>
+                <article class="family-card">
+                    <img src="images/no-profile-image.png" alt="รูปมารดา">
+                    <div>
+                        <span>มารดา</span>
+                        <h4>นางวิมล ทองยศ</h4>
+                        <p>เกษตรกร · ยังมีชีวิตอยู่</p>
+                        <a href="tel:0615958817">061-5958817</a>
+                        <small>รายได้ 40,000 บาท/ปี</small>
+                    </div>
+                </article>
+                <article class="family-card guardian-card">
+                    <img src="images/no-profile-image.png" alt="รูปผู้ปกครอง">
+                    <div>
+                        <span>ผู้ปกครอง · มารดา</span>
+                        <h4>นางวิมล ทองยศ</h4>
+                        <p>สถานภาพบิดา-มารดา: อยู่ด้วยกัน</p>
+                        <a href="tel:0615958817">061-5958817</a>
+                        <small>ความสัมพันธ์กับนักเรียน: มารดา</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-box history-section history-table-section" id="attendance">
+            <div class="history-section-heading">
+                <div>
+                    <span class="history-eyebrow">Attendance History</span>
+                    <h3>ประวัติการเข้าร่วมกิจกรรมหน้าเสาธง</h3>
+                </div>
+                <span class="section-badge">12 ภาคเรียน</span>
+            </div>
+            <div class="table-container">
+                <table class="student-table history-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ภาคเรียน/ปี</th>
+                            <th scope="col">มา</th>
+                            <th scope="col">กิจกรรม</th>
+                            <th scope="col">ลา</th>
+                            <th scope="col">สาย</th>
+                            <th scope="col">ขาด</th>
+                            <th scope="col">รวม</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">1/2562</th><td>75</td><td>1</td><td>1</td><td>-</td><td>-</td><td><strong>77</strong></td></tr>
+                        <tr><th scope="row">2/2562</th><td>70</td><td>-</td><td>6</td><td>-</td><td>1</td><td><strong>77</strong></td></tr>
+                        <tr><th scope="row">1/2563</th><td>81</td><td>1</td><td>2</td><td>-</td><td>-</td><td><strong>84</strong></td></tr>
+                        <tr><th scope="row">2/2563</th><td>69</td><td>-</td><td>4</td><td>-</td><td>1</td><td><strong>74</strong></td></tr>
+                        <tr><th scope="row">1/2564</th><td>21</td><td>-</td><td>-</td><td>-</td><td>-</td><td><strong>21</strong></td></tr>
+                        <tr><th scope="row">2/2564</th><td>73</td><td>-</td><td>2</td><td>-</td><td>2</td><td><strong>77</strong></td></tr>
+                        <tr><th scope="row">1/2565</th><td>71</td><td>9</td><td>4</td><td>-</td><td>-</td><td><strong>84</strong></td></tr>
+                        <tr><th scope="row">2/2565</th><td>85</td><td>1</td><td>4</td><td>-</td><td>-</td><td><strong>90</strong></td></tr>
+                        <tr><th scope="row">1/2566</th><td>85</td><td>-</td><td>3</td><td>-</td><td>-</td><td><strong>88</strong></td></tr>
+                        <tr><th scope="row">2/2566</th><td>73</td><td>8</td><td>5</td><td>-</td><td>-</td><td><strong>86</strong></td></tr>
+                        <tr><th scope="row">1/2567</th><td>51</td><td>32</td><td>9</td><td>1</td><td>-</td><td><strong>93</strong></td></tr>
+                        <tr><th scope="row">2/2567</th><td>36</td><td>20</td><td>20</td><td>-</td><td>3</td><td><strong>79</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="history-content-grid" id="behavior">
+            <section class="content-box history-section history-table-section">
+                <div class="history-section-heading">
+                    <div>
+                        <span class="history-eyebrow">Positive Behavior</span>
+                        <h3>พฤติกรรมที่พึงประสงค์</h3>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="student-table history-table behavior-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ภาคเรียน/ปี</th>
+                                <th scope="col">บำเพ็ญประโยชน์</th>
+                                <th scope="col">ร่วมกิจกรรม</th>
+                                <th scope="col">ทักษะวิชาการ</th>
+                                <th scope="col">ทักษะกีฬา</th>
+                                <th scope="col">รวม</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">1/2567</th><td>-</td><td>-</td><td>2</td><td>-</td><td><strong>2</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-box history-section empty-history">
+                <div class="empty-icon" aria-hidden="true">✓</div>
+                <span class="history-eyebrow">Student Care</span>
+                <h3>ข้อมูลอื่นที่ควรทราบ</h3>
+                <div class="empty-history-list">
+                    <p><strong>กิจกรรมคณะสี</strong><span>ยังไม่มีประวัติ</span></p>
+                    <p><strong>การเข้าชั้นเรียนสาย</strong><span>ไม่มีประวัติ</span></p>
+                    <p><strong>พฤติกรรมไม่พึงประสงค์</strong><span class="value-positive">ไม่มีประวัติ</span></p>
+                </div>
+            </section>
+        </div>
+
+        <aside class="history-note">
+            <strong>หมายเหตุ</strong>
+            ประวัติพฤติกรรมไม่พึงประสงค์ในหน้านี้ไม่รวมข้อมูลการขาด ลา สาย จากการเข้าร่วมกิจกรรมหน้าเสาธง
+        </aside>
+        </div>
+
+        <footer>
+            © ระบบจัดการสารสนเทศ<br />
+            System developed by: Mr. Surasith Taokok, email: taokok@gmail.com, Tel: 087 370 8079
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="scripts/content.js"></script>
+    <script src="scripts/history.js?v=5"></script>
+</body>
+
+</html>
