@@ -135,6 +135,12 @@
                 </div>
             </section>
 
+            <form id="attendanceForm" class="attendance-form" action="#" method="post">
+                <input type="hidden" name="subjectCode" value="ว33201" />
+                <input type="hidden" name="classroom" value="6/2" />
+                <input type="hidden" name="period" value="4" />
+                <input type="hidden" name="academicYear" value="2568" />
+
             <section class="teacher-sign-panel" aria-labelledby="teacher-sign-title">
                 <div>
                     <h3 id="teacher-sign-title">การลงชื่อครูผู้สอน</h3>
@@ -403,9 +409,10 @@
             </div>
 
             <div class="form-actions learn-actions">
-                <button class="btn-form" type="button">บันทึกข้อมูล</button>
-                <button class="btn-form btn-cancel" type="button">ยกเลิก</button>
+                <button class="btn-form" type="submit">บันทึกข้อมูล</button>
+                <button class="btn-form btn-cancel" type="reset">ยกเลิก</button>
             </div>
+            </form>
         </section>
 
         <footer>
@@ -415,7 +422,7 @@
     </main>
 
     <script src="scripts/content.js"></script>
-    <script src="scripts/learn.js"></script>
+    <script src="scripts/learn.js?v=2"></script>
 </body>
 
 </html>

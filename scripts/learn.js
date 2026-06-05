@@ -15,16 +15,41 @@ function updateAttendanceRow(input) {
     row.classList.add(`is-${input.value}`);
 }
 
-function initializeAttendanceRows() {
+function synchronizeAttendanceRows() {
     document.querySelectorAll('[data-attendance-status]').forEach((input) => {
         if (input.checked) {
             updateAttendanceRow(input);
         }
+    });
+}
 
+function initializeAttendanceRows() {
+    synchronizeAttendanceRows();
+
+    document.querySelectorAll('[data-attendance-status]').forEach((input) => {
         input.addEventListener('change', (event) => {
             updateAttendanceRow(event.target);
         });
     });
 }
 
-document.addEventListener('DOMContentLoaded', initializeAttendanceRows);
+function initializeAttendanceForm() {
+    const form = document.getElementById('attendanceForm');
+
+    if (!form) {
+        return;
+    }
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    });
+
+    form.addEventListener('reset', () => {
+        setTimeout(synchronizeAttendanceRows, 0);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeAttendanceRows();
+    initializeAttendanceForm();
+});
