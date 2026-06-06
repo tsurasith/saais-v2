@@ -1,57 +1,94 @@
 # SAAIS V2
 
-Static HTML prototype สำหรับระบบสารสนเทศงานกิจการนักเรียน/ระบบโรงเรียน ใช้เป็นต้นแบบหน้าจอสำหรับ login, เมนูหลัก, หน้า content module, รายงาน, ตารางข้อมูล, ตารางเรียนตารางสอน และฟอร์มที่เกี่ยวข้อง
+HTML prototype สำหรับระบบสารสนเทศโรงเรียนเนินสง่าวิทยา ครอบคลุมหน้าก่อนเข้าสู่ระบบ หน้าหลังเข้าสู่ระบบ ข้อมูลบุคลากร ประวัตินักเรียน การบันทึกการเข้าเรียน และตัวอย่างองค์ประกอบที่ใช้ภายในระบบ
 
-โปรเจกต์นี้ยังไม่มี build tool หรือ backend ในตัว สามารถเปิดผ่าน MAMP/Apache หรือเปิดไฟล์ HTML โดยตรงเพื่อดู layout และ interaction เบื้องต้นได้
+โปรเจกต์นี้เป็น Static HTML/CSS/JavaScript ยังไม่มี backend, database หรือ build tool สามารถใช้เป็นต้นแบบ UI/UX ก่อนนำไปเชื่อมต่อระบบจริง
 
-## หน้าหลักในโปรเจกต์
+## หน้าตัวอย่าง
 
-- `index.html` หน้า entry สำหรับรวมลิงก์ไปยังตัวอย่างหน้าต่าง ๆ
-- `login.html` หน้าเข้าสู่ระบบ ใช้ theme ก่อน login
-- `forgot-password.html` หน้าลืมรหัสผ่าน ใช้ theme ก่อน login
-- `change-password.html` หน้าเปลี่ยนรหัสผ่านหลัง login
-- `main.html` หน้าเมนูหลักหลัง login
-- `content.html` หน้า content module หลัก รวมตัวอย่างฟอร์ม ตาราง รายงาน chart date picker และตารางเรียนตารางสอน
+| ไฟล์ | รายละเอียด |
+| --- | --- |
+| `index.html` | รวมลิงก์เข้าสู่หน้าตัวอย่างทั้งหมด |
+| `login.html` | หน้าเข้าสู่ระบบ |
+| `forgot-password.html` | หน้าลืมรหัสผ่าน |
+| `about.html` | หน้าอธิบายความเป็นมาและข้อมูลระบบ |
+| `main.html` | หน้าเมนูหลักหลังเข้าสู่ระบบ |
+| `content.html` | ตัวอย่างองค์ประกอบหลัก ฟอร์ม ตาราง รายงาน Chart ปฏิทิน และตารางเรียน |
+| `change-password.html` | หน้าเปลี่ยนรหัสผ่านหลังเข้าสู่ระบบ |
+| `profile.html` | หน้าโปรไฟล์บุคลากร พร้อม Photo Gallery และ Lightbox |
+| `learn.html` | หน้าบันทึกการเข้าเรียน รองรับการใช้งานบนมือถือ |
+| `history.html` | หน้าประวัตินักเรียน พร้อมข้อมูลครอบครัว ทุนการศึกษา ประวัติพฤติกรรม และส่งออก PDF |
 
-## โครงสร้างไฟล์
+## โครงสร้างโปรเจกต์
 
 ```text
-.
+saais-v2/
 ├── css/
 │   ├── header-before-login.css
 │   ├── header-after-login.css
-│   ├── index.css
-│   ├── login.css
-│   ├── forgot-password.css
+│   ├── content.css
+│   ├── about.css
 │   ├── change-password.css
-│   └── content.css
+│   ├── forgot-password.css
+│   ├── history.css
+│   ├── index.css
+│   ├── learn.css
+│   ├── login.css
+│   └── profile.css
 ├── images/
 │   ├── school_logo.gif
+│   ├── no-profile-image.png
 │   └── module-*.png
 ├── scripts/
 │   ├── calendar.js
 │   ├── change-password.js
-│   └── content.js
+│   ├── content.js
+│   ├── history.js
+│   ├── learn.js
+│   └── profile.js
 ├── *.html
 └── README.md
 ```
 
-## แนวทางจัด CSS
+## แนวทางจัด Theme และ CSS
 
-- Theme ก่อน login ใช้ `header-before-login.css` ร่วมกับ `login.css` หรือ `forgot-password.css`
-- Theme หลัง login ใช้ `header-after-login.css` ร่วมกับ `content.css`
-- `change-password.html` ใช้โครงสร้างหลัง login และเสริม style เฉพาะหน้าด้วย `change-password.css`
+- หน้าก่อนเข้าสู่ระบบใช้ `header-before-login.css` ร่วมกับ CSS เฉพาะหน้า เช่น `login.css`, `forgot-password.css` และ `about.css`
+- หน้าหลังเข้าสู่ระบบใช้ `header-after-login.css` และ `content.css` เป็นโครงหลัก
+- หน้าที่มีองค์ประกอบเฉพาะจะแยก CSS เพิ่มเติม เช่น `learn.css`, `profile.css` และ `history.css`
 - `index.css` ใช้เฉพาะหน้า `index.html`
+- Theme หลักใช้พื้นหลังสีขาว สีแดงเข้มเป็นสีเน้น และสีน้ำเงินสำหรับข้อความหรือลิงก์ที่โต้ตอบได้
+- ตารางใช้หัวตารางสีเทาอ่อน เส้นคั่นบาง แถวสลับสี และ hover เพื่อช่วยติดตามข้อมูล
 
 ## JavaScript
 
-- `scripts/content.js` จัดการ dropdown, Buddhist date label, PDF export และ chart
-- `scripts/calendar.js` จัดการ date picker สำหรับ textbox date และตรวจรูปแบบวันที่
-- `scripts/change-password.js` จัดการ show/hide password และ label ตรวจ password/confirm password
+- `scripts/content.js` จัดการ Dropdown, Buddhist date label, Chart และฟังก์ชัน PDF พื้นฐาน
+- `scripts/calendar.js` จัดการ Date Picker และตรวจสอบรูปแบบวันที่
+- `scripts/change-password.js` จัดการแสดง/ซ่อนรหัสผ่าน และตรวจ Password Confirmation
+- `scripts/learn.js` จัดการสถานะการเข้าเรียนและสีพื้นหลังแต่ละรายการ
+- `scripts/profile.js` จัดการ Photo Gallery Lightbox
+- `scripts/history.js` จัดหน้า A4 และสร้าง PDF ประวัตินักเรียน
 
-## External libraries
+## History PDF
 
-โปรเจกต์อ้างอิง CDN บางส่วนจาก HTML โดยตรง:
+หน้า `history.html` สามารถส่งออกข้อมูลเป็น PDF ผ่าน jsPDF และ html2canvas
+
+- ส่งออกเป็นกระดาษ A4 แนวตั้ง
+- ตรวจสอบตำแหน่ง `history-section` และดันกล่องไปหน้าใหม่เมื่อพื้นที่ไม่เพียงพอ
+- ใช้ความละเอียด `2x` และ JPEG Quality `94%` เพื่อเน้นความคมชัด
+- ใช้ JPEG และเปิด PDF compression เพื่อลดขนาดไฟล์
+- หาก library จาก CDN โหลดไม่ได้ ระบบจะเปิด Browser Print เพื่อเลือก Save as PDF
+- ชื่อไฟล์ถูกสร้างจาก `generateFileName('student-history-profile')`
+
+## Responsive Design
+
+- รองรับ Desktop, Tablet และ Mobile
+- ตารางขนาดกว้างเลื่อนแนวนอนเฉพาะภายในกรอบตาราง
+- หน้า `learn.html` ปรับขนาดและจำนวนคอลัมน์ให้เหมาะกับการบันทึกผ่านมือถือ
+- หน้า `history.html` แสดงรูปนักเรียนเต็มพื้นที่เมื่อเป็นมือถือแนวตั้ง โดยไม่เปลี่ยนรูปแบบ Desktop
+
+## External Libraries
+
+HTML บางหน้าเรียก library ผ่าน CDN:
 
 - Google Fonts
 - Font Awesome
@@ -59,31 +96,28 @@ Static HTML prototype สำหรับระบบสารสนเทศง�
 - jsPDF
 - html2canvas
 
-หากใช้งานในสภาพแวดล้อมที่ไม่มี internet ควรดาวน์โหลด library เหล่านี้มาเก็บในโปรเจกต์และปรับ path ให้เป็น local
+หากใช้งานในระบบที่ไม่มีอินเทอร์เน็ต ควรดาวน์โหลด library เหล่านี้เก็บภายในโปรเจกต์และเปลี่ยน path เป็น local
 
-## วิธีเปิดดู
+## วิธีเปิดใช้งาน
 
-วางโฟลเดอร์ไว้ใน web root ของ MAMP เช่น:
+วางโปรเจกต์ใน Web Root ของ MAMP:
 
 ```text
 /Applications/MAMP/htdocs/saais-v2
 ```
 
-จากนั้นเปิดผ่าน browser:
+เปิดผ่าน Browser:
 
 ```text
-http://localhost/saais-v2/
+http://localhost:8888/saais-v2/
 ```
 
-หรือเปิดไฟล์ `index.html` โดยตรงเพื่อเลือกดูแต่ละหน้าตัวอย่าง
+จากนั้นใช้ `index.html` เพื่อเลือกดูแต่ละหน้า Prototype
 
-## Cleanup ล่าสุด
+## หมายเหตุการพัฒนาต่อ
 
-- ลบ `scripts/script.js` เพราะไม่ถูกเรียกใช้ และ logic dropdown ถูกย้ายไปดูแลใน `scripts/content.js` แล้ว
-- ลบ `prompt.text` เพราะเป็นบันทึก prompt เก่า ไม่ใช่ไฟล์ runtime ของโปรเจกต์
-- เพิ่ม `.gitignore` เพื่อกัน `.DS_Store`
-- ลบ `.DS_Store` ใน root และ `images/`
-
-## หมายเหตุเรื่อง asset
-
-รูปใน `images/` ส่วนใหญ่เป็นไอคอน module ที่ใช้ใน `main.html` และ `content.html` บางไฟล์ยังเป็น asset สำรองที่ยังไม่ถูกเรียกใช้ใน HTML ปัจจุบัน เช่น `module-blackboard.png`, `module-lawyer.png`, `module-yyyy.png`, `no-profile-image.png` จึงยังเก็บไว้ก่อนเผื่อใช้ต่อใน module อื่น
+- ข้อมูลทั้งหมดเป็นข้อมูลตัวอย่าง ยังไม่มีการบันทึกหรือค้นหาจากฐานข้อมูล
+- Form และลิงก์บางรายการใช้เพื่อสาธิต UI เท่านั้น
+- Header/Footer ยังเป็น HTML ซ้ำในแต่ละหน้า หากพัฒนาเป็นระบบจริงควรแยกเป็น Template, Component หรือ Server-side Include
+- ควรนำ External Libraries และรูปบุคลากรจาก URL ภายนอกมาเก็บภายในระบบก่อนใช้งาน Production
+- เมื่อแก้ CSS/JavaScript ที่ Browser อาจ cache ควรอัปเดต query version ในไฟล์ HTML ที่เรียกใช้งาน
